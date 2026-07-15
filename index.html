@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Novus is the Universal Enterprise AI Runtime & Control Plane. Deploy, govern, and intelligently route requests across OpenAI, Claude, Gemini, and self-hosted models from a unified platform.">
+  <title>Novus | Universal Enterprise AI Runtime & Control Plane</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Glowing Background Orbs -->
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  
+  <!-- Navigation Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#" class="logo-container" id="nav-logo">
+        <span class="logo-icon">▲</span>
+        <span class="logo-text">novus<span class="logo-accent">.ai</span></span>
+      </a>
+      
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#router-demo" class="nav-link">Interactive Router</a></li>
+          <li><a href="#calculator" class="nav-link">ROI Calculator</a></li>
+          <li><a href="#sectors" class="nav-link">Sectors</a></li>
+          <li><a href="#code-compare" class="nav-link">Developer API</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-cta">
+        <a href="#register-beta" class="btn btn-primary btn-sm" id="header-cta-btn">Join Beta Program</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Announcing Novus Enterprise Beta</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Your Enterprise AI.<br>
+        <span class="text-gradient">Every Model. One Runtime.</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Deploy, govern, and intelligently route requests across OpenAI, Claude, Gemini, and self-hosted models from one unified, secure platform. Built for high-compliance environments.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#register-beta" class="btn btn-primary" id="hero-primary-cta">Request Beta Access</a>
+        <a href="#router-demo" class="btn btn-secondary" id="hero-secondary-cta">Try Interactive Demo</a>
+      </div>
+
+      <!-- Quick Command Container -->
+      <div class="terminal-container">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-btn close"></span>
+            <span class="terminal-btn minimize"></span>
+            <span class="terminal-btn maximize"></span>
+          </div>
+          <div class="terminal-title">bash — install-novus.sh</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span> curl -sSL https://get.novus.ai | sh
+          </div>
+          <div class="terminal-line output-line">
+            Downloading Novus Enterprise Runtime v0.8.2-beta...
+          </div>
+          <div class="terminal-line output-line">
+            Checking local GPU compatibility (CUDA 12.2 detected)...
+          </div>
+          <div class="terminal-line output-line success-line">
+            ✓ Successfully installed Novus CLI on your environment!
+          </div>
+          <div class="terminal-line output-line">
+            Run 'novus init' to configure your gateway.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Prop & Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The Unified AI Gateway</h2>
+        <p class="section-description">Stop managing dozens of individual API tokens, custom endpoints, and configuration files. Novus abstracts provider differences into a single compliance-first orchestrator.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-card-title">Sovereign Control Plane</h3>
+          <p class="feature-card-text">Deploy local models (Llama 3/4, Qwen, DeepSeek) inside your private cloud or on-premise hardware. Ensure 100% data sovereignty.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">🔀</div>
+          <h3 class="feature-card-title">Intelligent Hybrid Router</h3>
+          <p class="feature-card-text">Classify request intent instantly. Dynamically balance workloads based on cost, latency, compliance requirements, and accuracy targets.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">📉</div>
+          <h3 class="feature-card-title">Automated AI FinOps</h3>
+          <p class="feature-card-text">Reduce token expenditures by 50-80% by routing simple tasks to self-hosted SLMs while reserving GPT/Claude for complex workloads.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon">🧩</div>
+          <h3 class="feature-card-title">One API Interface</h3>
+          <p class="feature-card-text">Fully OpenAI-compatible endpoint. Write your application once, swap or fallback models on the fly without changing a line of application code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Visual Flow Section -->
+  <section class="architecture-section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Enterprise AI Architecture</h2>
+        <p class="section-description">How Novus orchestrates your application workloads across private infrastructure and cloud LLM providers.</p>
+      </div>
+
+      <div class="arch-visualizer-card">
+        <div class="arch-flow-container">
+          <!-- Flow SVG Diagram -->
+          <svg viewBox="0 0 800 320" class="arch-flow-svg" id="arch-svg" aria-label="Novus Architecture Flow Diagram">
+            <!-- Definitions for gradients -->
+            <defs>
+              <linearGradient id="cyan-violet" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f2fe" />
+                <stop offset="100%" stop-color="#7f00ff" />
+              </linearGradient>
+              <linearGradient id="gold-red" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f857a6" />
+                <stop offset="100%" stop-color="#ff5858" />
+              </linearGradient>
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            
+            <!-- Nodes -->
+            <!-- Apps Input Node -->
+            <rect x="20" y="110" width="140" height="80" rx="10" fill="#151b30" stroke="#00f2fe" stroke-width="2" />
+            <text x="90" y="150" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="600" text-anchor="middle">Enterprise Apps</text>
+            <text x="90" y="170" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Sends API Request</text>
+            
+            <!-- Gateway / Router Node -->
+            <rect x="280" y="80" width="220" height="140" rx="12" fill="url(#cyan-violet)" filter="url(#glow)" />
+            <text x="390" y="125" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" text-anchor="middle">NOVUS OS</text>
+            <text x="390" y="150" fill="#e4e6eb" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" text-anchor="middle">Universal AI Control Plane</text>
+            <text x="390" y="180" fill="#00f2fe" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="1">POLICIES &amp; ROUTING</text>
+            
+            <!-- Target Nodes -->
+            <!-- Private SLMs -->
+            <rect x="620" y="20" width="160" height="70" rx="10" fill="#151b30" stroke="#0575e6" stroke-width="2" />
+            <text x="700" y="50" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Private SLMs (On-Prem)</text>
+            <text x="700" y="70" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Llama 4, Qwen, DeepSeek</text>
+
+            <!-- Public Cloud APIs -->
+            <rect x="620" y="120" width="160" height="70" rx="10" fill="#151b30" stroke="#7f00ff" stroke-width="2" />
+            <text x="700" y="150" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Proprietary Cloud APIs</text>
+            <text x="700" y="170" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">OpenAI, Claude, Gemini</text>
+
+            <!-- Hybrid Edge/Local -->
+            <rect x="620" y="220" width="160" height="70" rx="10" fill="#151b30" stroke="#f857a6" stroke-width="2" />
+            <text x="700" y="250" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Edge Deployments</text>
+            <text x="700" y="270" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Local GPU / IoT Device</text>
+            
+            <!-- Dynamic Path Connectors -->
+            <!-- Input to Router -->
+            <path d="M 160 150 L 280 150" fill="none" stroke="#00f2fe" stroke-width="3" stroke-dasharray="8 6" id="path-input">
+              <animate attributeName="stroke-dashoffset" values="50;0" dur="4s" repeatCount="indefinite" />
+            </path>
+            
+            <!-- Router to Private -->
+            <path d="M 500 150 Q 560 150 560 55 L 620 55" fill="none" stroke="#0575e6" stroke-width="2" id="path-private" />
+            <!-- Router to Cloud -->
+            <path d="M 500 150 L 620 150" fill="none" stroke="#7f00ff" stroke-width="2" id="path-cloud" />
+            <!-- Router to Edge -->
+            <path d="M 500 150 Q 560 150 560 255 L 620 255" fill="none" stroke="#f857a6" stroke-width="2" id="path-edge" />
+          </svg>
+        </div>
+        
+        <div class="arch-toggle-controls">
+          <button class="arch-tab-btn active" data-type="private" id="btn-arch-private">Private Sovereign Cloud</button>
+          <button class="arch-tab-btn" data-type="cloud" id="btn-arch-cloud">Hybrid Failover API</button>
+          <button class="arch-tab-btn" data-type="edge" id="btn-arch-edge">Local Edge Compute</button>
+        </div>
+        
+        <div class="arch-description-box" id="arch-description">
+          <h4 class="arch-box-title" id="arch-title-text">Active Configuration: Private Sovereign Cloud</h4>
+          <p class="arch-box-body" id="arch-body-text">Requests are run inside a private server enclosure or dedicated Kubernetes node. Zero training or inference data travels outside the corporate firewall. Compliant with military, BFSI, and strict national privacy mandates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive AI Router Simulator Widget -->
+  <section class="router-demo-section" id="router-demo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Test the Intelligent AI Router</h2>
+        <p class="section-description">Select an enterprise query task and customize your operating policies. See where Novus routes the request in real time and watch the performance indicators adapt.</p>
+      </div>
+
+      <div class="router-grid">
+        <!-- Interactive Controls -->
+        <div class="router-card control-panel-card">
+          <h3 class="panel-header">Policy Configurator</h3>
+          
+          <div class="control-group">
+            <label for="query-select" class="control-label">Enterprise Query Scenario</label>
+            <select id="query-select" class="form-select">
+              <option value="billing">"Summarize today's financial ledger reports" (Financial Ledger)</option>
+              <option value="clinical">"Cross-check patient clinical diagnostics" (Healthcare Diagnosis)</option>
+              <option value="marketing">"Write a launch copy for our new global expansion" (Creative Marketing)</option>
+              <option value="translation" selected>"Translate 100,000 legal contracts to Spanish" (High-Volume Translation)</option>
+              <option value="support">"Reset account credentials and trigger 2FA link" (Secure IT Auth)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <div class="slider-header">
+              <span class="control-label">Data Sensitivity Level</span>
+              <span class="slider-val" id="sensitivity-val">High (PII / Internal)</span>
+            </div>
+            <input type="range" id="sensitivity-slider" class="form-range" min="1" max="3" value="3">
+            <div class="slider-labels">
+              <span>Public</span>
+              <span>Internal</span>
+              <span>Classified / PII</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="slider-header">
+              <span class="control-label">Budget Priority</span>
+              <span class="slider-val" id="budget-val">Cost Savings Primary</span>
+            </div>
+            <input type="range" id="budget-slider" class="form-range" min="1" max="3" value="1">
+            <div class="slider-labels">
+              <span>Save Cost</span>
+              <span>Balanced</span>
+              <span>Highest Accuracy</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="checkbox-container">
+              <input type="checkbox" id="compliance-chk" checked>
+              <span class="checkbox-checkmark"></span>
+              <span class="checkbox-text">Enforce BFSI / HIPAA Compliance Engine</span>
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-block" id="btn-simulate-route">Route Request</button>
+        </div>
+
+        <!-- Simulation Screen & Results -->
+        <div class="router-card simulator-display-card">
+          <h3 class="panel-header">Routing Engine Output</h3>
+          
+          <div class="simulator-console">
+            <div class="console-screen" id="console-logs">
+              <div class="log-line text-cyan">[System] Initializing Routing Request Pipeline...</div>
+              <div class="log-line">[Scanner] Parsing query token array for PII parameters...</div>
+              <div class="log-line text-green">[Policy] HIPAA &amp; GDPR filters actively loaded.</div>
+              <div class="log-line text-violet">[Optimizer] Evaluating 8 local and 12 cloud LLM endpoints...</div>
+            </div>
+          </div>
+
+          <div class="routing-result-panel">
+            <div class="result-model-badge">
+              <span class="result-label">Selected Engine</span>
+              <div class="result-value text-gradient" id="routed-model-name">Llama-3-Sovereign-70B</div>
+            </div>
+
+            <div class="results-stats-grid">
+              <div class="stat-box">
+                <span class="stat-label">Est. Latency</span>
+                <span class="stat-value" id="stat-latency">180 ms</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Cost/Million Tokens</span>
+                <span class="stat-value text-green" id="stat-cost">$0.15</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Compliance Status</span>
+                <span class="stat-value text-gradient" id="stat-compliance">PASSED</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Data Storage Residency</span>
+                <span class="stat-value" id="stat-storage">On-Premises Vault</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / FinOps TCO Savings Calculator Section -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Calculate Your AI FinOps ROI</h2>
+        <p class="section-description">By routing routine workloads to private nodes and falling back to proprietary models only when necessary, enterprises dramatically trim costs. Estimate your returns below.</p>
+      </div>
+
+      <div class="calculator-grid">
+        <div class="calculator-card input-card">
+          <h3 class="calculator-header">Your Current Expenditure</h3>
+          
+          <div class="form-group">
+            <label for="monthly-tokens" class="control-label">Monthly Volume (Millions of Tokens)</label>
+            <input type="number" id="monthly-tokens" class="form-control" value="500" min="10">
+            <span class="input-helper">Typical enterprise applications consume 100M - 5B tokens monthly.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="avg-cloud-price" class="control-label">Avg. Third-Party Provider Cost (per Million Tokens)</label>
+            <input type="number" id="avg-cloud-price" class="form-control" value="8.00" step="0.50" min="1">
+            <span class="input-helper">Estimated current cost (e.g. GPT-4o blend costs ~$8.00/M tokens).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="private-ratio" class="control-label">Desired Private/Local Target Ratio</label>
+            <div class="ratio-display">
+              <span id="ratio-slider-val">80% Private / 20% Cloud Fallback</span>
+            </div>
+            <input type="range" id="private-ratio" class="form-range" min="10" max="95" step="5" value="80">
+          </div>
+        </div>
+
+        <div class="calculator-card results-card">
+          <h3 class="calculator-header">Financial Projections (Estimated)</h3>
+          
+          <div class="roi-metric-highlight">
+            <span class="roi-label">Projected Annual Savings</span>
+            <span class="roi-value text-gradient" id="calc-annual-savings">$42,000</span>
+          </div>
+
+          <div class="calculator-substats">
+            <div class="calc-sub-box">
+              <span class="sub-label">Current Annual Cost</span>
+              <span class="sub-value" id="calc-current-cost">$48,000</span>
+            </div>
+            <div class="calc-sub-box">
+              <span class="sub-label">Novus Annual Cost (Hybrid)</span>
+              <span class="sub-value text-green" id="calc-novus-cost">$6,000</span>
+            </div>
+            <div class="calc-sub-box">
+              <span class="sub-label">Est. Capital Payback Time</span>
+              <span class="sub-value" id="calc-payback">1.8 Months</span>
+            </div>
+          </div>
+
+          <div class="calculator-chart-placeholder">
+            <!-- Simulated CSS Bar Chart comparing costs -->
+            <div class="chart-container">
+              <div class="chart-bar-group">
+                <span class="chart-bar-title">Proprietary Only</span>
+                <div class="chart-bar-wrapper">
+                  <div class="chart-bar current-bar" id="bar-current" style="height: 100%"></div>
+                </div>
+                <span class="chart-bar-legend" id="legend-current">$48k</span>
+              </div>
+              <div class="chart-bar-group">
+                <span class="chart-bar-title">Novus OS Portal</span>
+                <div class="chart-bar-wrapper">
+                  <div class="chart-bar novus-bar" id="bar-novus" style="height: 12.5%"></div>
+                </div>
+                <span class="chart-bar-legend" id="legend-novus">$6k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer API Integration Code Switcher Section -->
+  <section class="code-compare-section" id="code-compare">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Zero-Friction SDK Migration</h2>
+        <p class="section-description">Integrate Novus into your applications with our OpenAI-compatible client libraries. Maintain standard application code while Novus handles routing, fallbacks, and auditing under the hood.</p>
+      </div>
+
+      <div class="code-grid">
+        <!-- Before: Multi-Vendor Spaghetti -->
+        <div class="code-box">
+          <div class="code-box-header">
+            <span class="badge badge-danger">Without Novus (Hard-Coded Vendors)</span>
+          </div>
+          <pre class="code-content"><code><span class="code-keyword">import</span> openai, anthropic, google
+
+<span class="code-comment"># Hardcoded logic branches for every call</span>
+<span class="code-keyword">def</span> <span class="code-function">generate_response</span>(prompt, priority):
+    <span class="code-keyword">if</span> priority == <span class="code-string">"high-security"</span>:
+        <span class="code-comment"># Local server endpoint setup</span>
+        client = openai.OpenAI(base_url=<span class="code-string">"http://10.0.1.5:8080"</span>)
+        model = <span class="code-string">"llama-70b-local"</span>
+    <span class="code-keyword">elif</span> priority == <span class="code-string">"creative"</span>:
+        client = anthropic.Anthropic()
+        model = <span class="code-string">"claude-3-5-sonnet"</span>
+    <span class="code-keyword">else</span>:
+        client = google.GenerativeModel()
+        model = <span class="code-string">"gemini-1.5-pro"</span>
+        
+    <span class="code-keyword">try</span>:
+        <span class="code-comment"># Multiple client specifications</span>
+        <span class="code-keyword">return</span> client.completions.create(model=model, prompt=prompt)
+    <span class="code-keyword">except</span> Exception <span class="code-keyword">as</span> e:
+        <span class="code-comment"># Manually script fallbacks</span>
+        ...</code></pre>
+        </div>
+
+        <!-- After: Unified Endpoint -->
+        <div class="code-box active-code">
+          <div class="code-box-header">
+            <span class="badge badge-success">With Novus (Unified Gateway)</span>
+          </div>
+          <pre class="code-content"><code><span class="code-keyword">import</span> openai
+
+<span class="code-comment"># Single integration endpoint. The Novus Control Plane </span>
+<span class="code-comment"># automatically applies compliance, optimization, and fallbacks.</span>
+client = openai.OpenAI(
+    base_url=<span class="code-string">"https://gateway.novus.internal/v1"</span>,
+    api_key=<span class="code-string">"nv_live_83ef92"</span>
+)
+
+<span class="code-keyword">def</span> <span class="code-function">generate_response</span>(prompt):
+    <span class="code-comment"># Send request directly. Novus intelligence routes it dynamically</span>
+    <span class="code-keyword">return</span> client.chat.completions.create(
+        model=<span class="code-string">"novus-smart-router"</span>,
+        messages=[{<span class="code-string">"role"</span>: <span class="code-string">"user"</span>, <span class="code-string">"content"</span>: prompt}]
+    )</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Targeted Verticals Section (Sectors) -->
+  <section class="sectors-section" id="sectors">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Built for Mission-Critical Industries</h2>
+        <p class="section-description">Novus provides regional regulatory configurations out-of-the-box, ensuring compliant deployment scopes.</p>
+      </div>
+
+      <div class="sectors-grid">
+        <!-- BFSI -->
+        <div class="sector-card">
+          <div class="sector-icon-wrapper">🏦</div>
+          <h3 class="sector-card-title">Banking &amp; Financial Services</h3>
+          <p class="sector-card-text">Secure customer account summaries and transaction histories. Force PII scrubbing and route high-risk files through air-gapped on-premise local models to enforce strict KYC/AML guidelines.</p>
+          <ul class="sector-bullet-list">
+            <li>PII &amp; PCI-DSS compliance checks</li>
+            <li>Fully auditable logging pipelines</li>
+            <li>On-Prem fallback redundancy</li>
+          </ul>
+        </div>
+        
+        <!-- Healthcare -->
+        <div class="sector-card">
+          <div class="sector-icon-wrapper">🏥</div>
+          <h3 class="sector-card-title">Healthcare &amp; Diagnostics</h3>
+          <p class="sector-card-text">Analyze clinical patient documentation, transcribe doctors' dictate notes, and run research models without exposing protected health information (PHI) to third-party public clouds.</p>
+          <ul class="sector-bullet-list">
+            <li>HIPAA compliant configuration</li>
+            <li>Zero retention data policies</li>
+            <li>Local medical dictionary SLM integrations</li>
+          </ul>
+        </div>
+
+        <!-- Government -->
+        <div class="sector-card">
+          <div class="sector-icon-wrapper">🏛️</div>
+          <h3 class="sector-card-title">Government &amp; Public Sector</h3>
+          <p class="sector-card-text">Provide civic information services and process sensitive national defense files. Keep operations sovereign, private, and independent of external national monopolies.</p>
+          <ul class="sector-bullet-list">
+            <li>FedRAMP &amp; SOC2 ready schemas</li>
+            <li>Support for highly restricted air-gapped environments</li>
+            <li>National language SLM optimizations (Bhashini compatible)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Interest Registration Form Section -->
+  <section class="register-section" id="register-beta">
+    <div class="container register-container">
+      <div class="register-grid">
+        <!-- Text intro -->
+        <div class="register-intro">
+          <span class="badge badge-accent">Beta Launch Registration</span>
+          <h2 class="register-heading">Accelerate Your Sovereign AI Roadmap</h2>
+          <p class="register-text">Join the private beta for Novus Enterprise. Secure your node, participate in early feature feedback, and co-design compliance blueprints with our engineering group.</p>
+          
+          <div class="trust-indicators">
+            <div class="trust-item">
+              <span class="trust-icon">✓</span>
+              <span>100% Encrypted Transmission</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">✓</span>
+              <span>Compliant with GDPR &amp; HIPAA standard protocols</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">✓</span>
+              <span>Deployment architecture assistance included</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actual Form -->
+        <div class="register-form-card">
+          <form id="beta-registration-form" method="POST" action="#" class="beta-form">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input type="text" id="form-name" name="fullname" class="form-control" autocomplete="name" required placeholder="Alex Mercer">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="form-email" class="form-label">Work Email</label>
+              <input type="email" id="form-email" name="email" class="form-control" autocomplete="email" required placeholder="alex@company.com">
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <label for="form-company" class="form-label">Organization Name</label>
+              <input type="text" id="form-company" name="company" class="form-control" required placeholder="Acme Corporation">
+            </div>
+
+            <!-- Industry -->
+            <div class="form-group">
+              <label for="form-industry" class="form-label">Primary Industry Segment</label>
+              <select id="form-industry" name="industry" class="form-select" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option value="bfsi">Banking, Financial Services &amp; Insurance</option>
+                <option value="healthcare">Healthcare &amp; Life Sciences</option>
+                <option value="government">Government &amp; Public Sector</option>
+                <option value="csp">Cloud Service Provider (CSP)</option>
+                <option value="telecom">Telecommunications</option>
+                <option value="other">Other Enterprise Technology</option>
+              </select>
+            </div>
+
+            <!-- Deployment Target -->
+            <div class="form-group">
+              <label for="form-deploy" class="form-label">Target Deployment Environment</label>
+              <select id="form-deploy" name="deployment" class="form-select" required>
+                <option value="" disabled selected>Select environment</option>
+                <option value="onprem">On-Premises Dedicated Server</option>
+                <option value="private-cloud">Private Cloud (VPC AWS/Azure/GCP)</option>
+                <option value="hybrid">Hybrid (Local + Cloud router fallback)</option>
+                <option value="edge">Edge Infrastructure (Local IoT / Devices)</option>
+              </select>
+            </div>
+
+            <!-- Token Spend -->
+            <div class="form-group">
+              <label for="form-spend" class="form-label">Est. Monthly Third-Party API Spend (USD)</label>
+              <select id="form-spend" name="spend" class="form-select" required>
+                <option value="" disabled selected>Select budget scale</option>
+                <option value="micro">&lt; $5,000 / month</option>
+                <option value="mid">$5,000 - $25,000 / month</option>
+                <option value="large">$25,000 - $100,000 / month</option>
+                <option value="enterprise">&gt; $100,000 / month</option>
+              </select>
+            </div>
+
+            <!-- Consent Checkbox -->
+            <div class="form-group checkbox-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="form-consent" name="consent" required>
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text font-small">I consent to receiving technical updates, beta details, and security alerts from Novus. Data is handled under our strict zero-retention developer policy.</span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="btn-form-submit" class="btn btn-primary btn-block">Submit Registration</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Modal Popup -->
+  <div id="success-modal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button class="modal-close" id="btn-close-modal" aria-label="Close dialog">&times;</button>
+      <div class="modal-icon">✓</div>
+      <h3 class="modal-title">Registration Submitted!</h3>
+      <p class="modal-body-text">Thank you for registering your interest in the Novus Enterprise AI Runtime beta program. Our Solutions Engineering group will review your deployment details and contact you at your work email with custom login access credentials within 48 hours.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="btn-dismiss-modal">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#" class="logo-container">
+          <span class="logo-icon">▲</span>
+          <span class="logo-text">novus<span class="logo-accent">.ai</span></span>
+        </a>
+        <p class="footer-tagline">The Enterprise AI Operating System. Run Anywhere. Optimize Automatically. Govern Centrally.</p>
+      </div>
+      
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="#architecture">Architecture Mesh</a></li>
+            <li><a href="#router-demo">AI Router Core</a></li>
+            <li><a href="#code-compare">SDK Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#sectors">BFSI Framework</a></li>
+            <li><a href="#sectors">HIPAA Healthcare</a></li>
+            <li><a href="#sectors">Sovereign Government</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#register-beta">Request Access</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Novus AI Systems, Inc. All rights reserved. Self-hosted AI orchestration framework licensed under Apache 2.0.</p>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
