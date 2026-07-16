@@ -147,6 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const logs = [
       `[Scanner] Analyzing prompt content metrics...`,
+      `[Guard] Scanning request for prompt injection & jailbreak signatures...`,
+      `[Guard] Verifying toxicity and language safety margins...`,
+      sensitivity >= 2 ? `[Guard] Scrubbing potential PII leaks (names, numbers, API keys)...` : `[Guard] Basic PII screening completed.`,
       complianceText,
       `[Compliance] Data Sensitivity rating detected: ${sensitivity === 3 ? "HIGH" : sensitivity === 2 ? "MEDIUM" : "LOW"}.`,
       `[Optimizer] Fetching GPU resource telemetry from cluster endpoints...`,
@@ -159,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
         line.className = 'log-line';
         if (logs[step].includes('Compliance') || logs[step].includes('GDPR') || logs[step].includes('Policy') || logs[step].includes('HIPAA') || logs[step].includes('DPDP') || logs[step].includes('SOC') || logs[step].includes('NIST')) {
           line.className = 'log-line text-green';
+        } else if (logs[step].includes('[Guard]')) {
+          line.className = 'log-line text-violet';
         }
         line.textContent = logs[step];
         consoleLogs.appendChild(line);
