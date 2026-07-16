@@ -495,7 +495,7 @@ client = openai.OpenAI(
         <!-- BFSI -->
         <div class="sector-card">
           <div class="sector-icon-wrapper">🏦</div>
-          <h3 class="sector-card-title">Banking &amp; Financial Services</h3>
+          <h3 class="sector-card-title">Banking, Finance and Insurance</h3>
           <p class="sector-card-text">Secure customer account summaries and transaction histories. Force PII scrubbing and route high-risk files through air-gapped on-premise local models to enforce strict KYC/AML guidelines.</p>
           <ul class="sector-bullet-list">
             <li>PII &amp; PCI-DSS compliance checks</li>
@@ -525,6 +525,18 @@ client = openai.OpenAI(
             <li>FedRAMP &amp; SOC2 ready schemas</li>
             <li>Support for highly restricted air-gapped environments</li>
             <li>National language SLM optimizations (Bhashini compatible)</li>
+          </ul>
+        </div>
+
+        <!-- Automotive & Manufacturing -->
+        <div class="sector-card">
+          <div class="sector-icon-wrapper">🚗</div>
+          <h3 class="sector-card-title">Automotive and Manufacturing</h3>
+          <p class="sector-card-text">Protect highly sensitive product engineering data, CAD designs, trade secrets, manufacturing logs, and safety diagnostic algorithms inside private R&amp;D enclaves or assembly floor nodes.</p>
+          <ul class="sector-bullet-list">
+            <li>IP &amp; Product Design protection</li>
+            <li>Ultra-low latency factory routing</li>
+            <li>Edge compute offline capability</li>
           </ul>
         </div>
       </div>
@@ -583,9 +595,10 @@ client = openai.OpenAI(
               <label for="form-industry" class="form-label">Primary Industry Segment</label>
               <select id="form-industry" name="industry" class="form-select" required>
                 <option value="" disabled selected>Select your industry</option>
-                <option value="bfsi">Banking, Financial Services &amp; Insurance</option>
+                <option value="bfsi">Banking, Finance and Insurance</option>
                 <option value="healthcare">Healthcare &amp; Life Sciences</option>
                 <option value="government">Government &amp; Public Sector</option>
+                <option value="automotive">Automotive and Manufacturing</option>
                 <option value="csp">Cloud Service Provider (CSP)</option>
                 <option value="telecom">Telecommunications</option>
                 <option value="other">Other Enterprise Technology</option>
