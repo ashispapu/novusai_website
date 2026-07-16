@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
       qwenEdge: ["Qwen-2.5-Edge-32B", "95 ms", "$0.08", "Local Edge Node"],
       mistralHybrid: ["Mistral-Large-Hybrid", "220 ms", "$1.20", "Secure Private VPC"],
       gptCloud: ["GPT-5-Enterprise", "340 ms", "$9.50", "US-East Encrypted API"],
-      claudeCloud: ["Claude-3.5-Sonnet-Pro", "290 ms", "$6.00", "US-West Multi-Tenant"]
+      claudeCloud: ["Claude-3.5-Sonnet-Pro", "290 ms", "$6.00", "US-West Multi-Tenant"],
+      geminiCloud: ["Gemini-1.5-Pro-Ultra", "240 ms", "$3.50", "Google Cloud VPC"]
     }
   };
 
@@ -140,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (scenario === 'billing') complianceText = "[Policy] SOC 2 Type II & PCI-DSS audit trails initialized (Strict Compliance Mode).";
       else if (scenario === 'translation') complianceText = "[Policy] GDPR & India DPDP Act cross-border validation constraints initialized (Strict Compliance Mode).";
       else if (scenario === 'support') complianceText = "[Policy] NIST AI Risk Management controls initialized (Strict Compliance Mode).";
+      else if (scenario === 'competitor') complianceText = "[Policy] Corporate Intelligence Compliance Protocol & SEC regulations verified.";
       else complianceText = "[Policy] Multi-Framework Guard (GDPR, DPDP, HIPAA, NIST, SOC 2) initialized.";
     } else {
       complianceText = "[Policy] Bypassing compliance check. Running in unshielded dev mode.";
@@ -211,13 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scenario === 'marketing') {
           selectedModel = routingEngineData.models.claudeCloud;
           logsSuffix = `[Decision] High creative accuracy required. Routed to Anthropic Claude 3.5.`;
+        } else if (scenario === 'competitor') {
+          selectedModel = routingEngineData.models.gptCloud;
+          logsSuffix = `[Decision] Deep market intelligence query. Routed to OpenAI GPT-5 (with web search index).`;
         } else {
           selectedModel = routingEngineData.models.gptCloud;
           logsSuffix = `[Decision] Advanced analytics query. Routed to OpenAI GPT-5 pipeline.`;
         }
       } else if (budget === 2) {
-        selectedModel = routingEngineData.models.mistralHybrid;
-        logsSuffix = `[Decision] Balanced performance constraint. Routed to Mistral Large hybrid cloud.`;
+        if (scenario === 'competitor') {
+          selectedModel = routingEngineData.models.geminiCloud;
+          logsSuffix = `[Decision] Balanced market intelligence query. Routed to Google Gemini-1.5-Pro.`;
+        } else {
+          selectedModel = routingEngineData.models.mistralHybrid;
+          logsSuffix = `[Decision] Balanced performance constraint. Routed to Mistral Large hybrid cloud.`;
+        }
       } else {
         selectedModel = routingEngineData.models.qwenEdge;
         logsSuffix = `[Decision] Cost-saving override. Routed to local edge infrastructure.`;
