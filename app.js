@@ -132,9 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
     consoleLogs.innerHTML = `<div class="log-line text-cyan">[System] Initializing Routing Pipeline for scenario '${scenario}'...</div>`;
     
     let step = 0;
+    
+    // Choose correct compliance frame name for logs
+    let complianceText = "[Policy] Basic compliance mapping enabled.";
+    if (compliance) {
+      if (scenario === 'clinical') complianceText = "[Policy] HIPAA & HITECH Health privacy shield initialized (Strict Compliance Mode).";
+      else if (scenario === 'billing') complianceText = "[Policy] SOC 2 Type II & PCI-DSS audit trails initialized (Strict Compliance Mode).";
+      else if (scenario === 'translation') complianceText = "[Policy] GDPR & India DPDP Act cross-border validation constraints initialized (Strict Compliance Mode).";
+      else if (scenario === 'support') complianceText = "[Policy] NIST AI Risk Management controls initialized (Strict Compliance Mode).";
+      else complianceText = "[Policy] Multi-Framework Guard (GDPR, DPDP, HIPAA, NIST, SOC 2) initialized.";
+    } else {
+      complianceText = "[Policy] Bypassing compliance check. Running in unshielded dev mode.";
+    }
+
     const logs = [
       `[Scanner] Analyzing prompt content metrics...`,
-      compliance ? `[Policy] GDPR/HIPAA Filter checks initialized (Strict Mode).` : `[Policy] Basic compliance mapping enabled.`,
+      complianceText,
       `[Compliance] Data Sensitivity rating detected: ${sensitivity === 3 ? "HIGH" : sensitivity === 2 ? "MEDIUM" : "LOW"}.`,
       `[Optimizer] Fetching GPU resource telemetry from cluster endpoints...`,
       `[Router] Evaluating routing constraints: budget priority ${budget === 3 ? "ACCURACY" : budget === 2 ? "BALANCED" : "COST"}.`
@@ -144,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (step < logs.length) {
         const line = document.createElement('div');
         line.className = 'log-line';
-        if (logs[step].includes('Compliance') || logs[step].includes('GDPR')) {
+        if (logs[step].includes('Compliance') || logs[step].includes('GDPR') || logs[step].includes('Policy') || logs[step].includes('HIPAA') || logs[step].includes('DPDP') || logs[step].includes('SOC') || logs[step].includes('NIST')) {
           line.className = 'log-line text-green';
         }
         line.textContent = logs[step];
