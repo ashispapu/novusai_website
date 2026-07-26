@@ -436,6 +436,345 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     6. Enterprise AI Control Plane Tab Manager
+     ========================================================================== */
+  const cpTabs = document.querySelectorAll('.cp-tab-btn');
+  const cpTag = document.getElementById('cp-tag');
+  const cpTitle = document.getElementById('cp-title');
+  const cpDesc = document.getElementById('cp-desc');
+  const cpVisual = document.getElementById('cp-visual');
+  const cpNotes = document.getElementById('cp-notes');
+
+  const cpConfigurations = {
+    eval: {
+      tag: "Verification",
+      title: "Model Evaluation Engine",
+      description: "Run off-line evaluation benchmarks on customized datasets before deploying new private model weights.",
+      visual: `
+        <div class="eval-chart">
+          <div class="eval-chart-bar" style="height: 94%" data-val="94%"></div>
+          <div class="eval-chart-bar" style="height: 87%" data-val="87%"></div>
+          <div class="eval-chart-bar" style="height: 91%" data-val="91%"></div>
+          <div class="eval-chart-bar" style="height: 78%" data-val="78%"></div>
+        </div>
+        <div style="display: flex; justify-content: space-around; width: 100%;">
+          <span class="eval-chart-label">Accuracy</span>
+          <span class="eval-chart-label">Safety</span>
+          <span class="eval-chart-label">Frugality</span>
+          <span class="eval-chart-label">Latency</span>
+        </div>
+      `,
+      notes: `
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Custom Benchmarks</span></div>
+          <div class="cp-note-body">Upload your industry test suites (MMLU, GSM8k, or private QA sheets) to run regression testing in seconds.</div>
+        </div>
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Drift Assessment</span></div>
+          <div class="cp-note-body">Detect semantic drift in user prompt flows and compare live responses against target gold standards.</div>
+        </div>
+      `
+    },
+    deploy: {
+      tag: "1-Click Launch",
+      title: "Zero-Downtime Deployment Engine",
+      description: "Launch production-grade sovereign AI endpoints inside private networks using unified, cloud-agnostic cluster scripts.",
+      visual: `
+        <div class="deploy-mesh-visual">
+          <div class="mesh-node source">Dev</div>
+          <div class="mesh-line"><span class="mesh-pulse"></span></div>
+          <div class="mesh-node">Novus</div>
+          <div class="mesh-line"><span class="mesh-pulse"></span></div>
+          <div class="mesh-node">Prod</div>
+        </div>
+      `,
+      notes: `
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>1-Click Helm Deploy</span></div>
+          <div class="cp-note-body">Deploy Novus control plane containers directly inside your Kubernetes VPC or private cluster mesh using a unified script.</div>
+        </div>
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Model Registry Sync</span></div>
+          <div class="cp-note-body">Connect directly with HuggingFace, private S3 buckets, or local file systems to synchronize custom weights on boot.</div>
+        </div>
+      `
+    },
+    scale: {
+      tag: "GPU Autoscale",
+      title: "Dynamic Resource Scaling Mesh",
+      description: "Automatically scale model worker nodes down to zero during dry spells, and spin up dozens of GPUs when request volume spikes.",
+      visual: `
+        <div class="scale-clusters">
+          <div class="cluster-dot active"></div>
+          <div class="cluster-dot active"></div>
+          <div class="cluster-dot active"></div>
+          <div class="cluster-dot active"></div>
+          <div class="cluster-dot active"></div>
+          <div class="cluster-dot active scaling"></div>
+          <div class="cluster-dot active scaling"></div>
+          <div class="cluster-dot active scaling"></div>
+          <div class="cluster-dot scaling"></div>
+          <div class="cluster-dot scaling"></div>
+          <div class="cluster-dot"></div>
+          <div class="cluster-dot"></div>
+          <div class="cluster-dot"></div>
+          <div class="cluster-dot"></div>
+          <div class="cluster-dot"></div>
+          <div class="cluster-dot"></div>
+        </div>
+      `,
+      notes: `
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Scale-to-Zero Compute</span></div>
+          <div class="cp-note-body">Reduce inactive server costs to zero. Spin down private SLM GPU resources dynamically when requests cease.</div>
+        </div>
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>GPU Load Balancing</span></div>
+          <div class="cp-note-body">Distribute prompts across heterogeneous GPU pools (A100, H100, L4, or local RTX nodes) for maximum hardware efficiency.</div>
+        </div>
+      `
+    },
+    observe: {
+      tag: "Telemetry",
+      title: "Observability & Tracing Suite",
+      description: "Monitor exact prompt execution graphs, latency metrics, and API dollar expenditures with live, interactive tracing maps.",
+      visual: `
+        <div class="circular-gauge">
+          <div class="gauge-value">
+            <span id="gauge-percent">99.8%</span>
+            <span class="gauge-label">Uptime</span>
+          </div>
+        </div>
+      `,
+      notes: `
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Sub-Token Tracing</span></div>
+          <div class="cp-note-body">Inspect deep prompt chains, multi-agent frameworks, and vector DB retrievals with microsecond tracking logs.</div>
+        </div>
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>FinOps cost breakdown</span></div>
+          <div class="cp-note-body">Track dollar expenditures across internal departments, APIs, and client application tokens from a central telemetry graph.</div>
+        </div>
+      `
+    },
+    govern: {
+      tag: "Compliance",
+      title: "Regulatory & Privacy Governance",
+      description: "Ensure complete governance by setting corporate usage policies, automated audit trails, and client PII masking.",
+      visual: `
+        <div class="circular-gauge" style="background: conic-gradient(var(--accent-pink) 0deg 315deg, rgba(0, 0, 0, 0.06) 315deg 360deg)">
+          <div class="gauge-value">
+            <span id="gauge-percent">100%</span>
+            <span class="gauge-label">PII Scrubbed</span>
+          </div>
+        </div>
+      `,
+      notes: `
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>PII Redaction Vault</span></div>
+          <div class="cp-note-body">Scrub credit card numbers, personal emails, or telephone inputs before prompts transit across external clouds.</div>
+        </div>
+        <div class="cp-note-item">
+          <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>DPDP &amp; GDPR Checks</span></div>
+          <div class="cp-note-body">Verify data residency rules. Restrict customer transactions to regional European or Indian sovereign servers.</div>
+        </div>
+      `
+    }
+  };
+
+  cpTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      cpTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const configKey = tab.getAttribute('data-tab');
+      const config = cpConfigurations[configKey];
+      if (config) {
+        cpTag.textContent = config.tag;
+        cpTag.className = 'cp-display-tag'; // reset
+        if (configKey === 'govern') {
+          cpTag.classList.add('badge-danger');
+        } else {
+          cpTag.classList.add('badge-accent');
+        }
+        cpTitle.textContent = config.title;
+        cpDesc.textContent = config.description;
+        cpVisual.innerHTML = config.visual;
+        cpNotes.innerHTML = config.notes;
+      }
+    });
+  });
+
+  /* ==========================================================================
+     7. Deploy Command Widget Copy Manager
+     ========================================================================== */
+  const btnCopyDeploy = document.getElementById('btn-copy-deploy-cmd');
+  const deployCmdText = document.getElementById('deploy-cmd-text');
+
+  if (btnCopyDeploy && deployCmdText) {
+    btnCopyDeploy.addEventListener('click', () => {
+      navigator.clipboard.writeText(deployCmdText.textContent)
+        .then(() => {
+          const originalText = btnCopyDeploy.textContent;
+          btnCopyDeploy.textContent = "✓ Copied!";
+          setTimeout(() => {
+            btnCopyDeploy.textContent = originalText;
+          }, 2000);
+        })
+        .catch(err => {
+          console.error("Failed to copy text: ", err);
+        });
+    });
+  }
+
+  /* ==========================================================================
+     8. Insights Section Filter Controller
+     ========================================================================== */
+  const insightFilterBtns = document.querySelectorAll('.insights-tab-btn');
+  const insightCards = document.querySelectorAll('.insight-card');
+
+  insightFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      insightFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      insightCards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        if (filter === 'all' || type === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ==========================================================================
+     9. Insights slide-over drawer
+     ========================================================================== */
+  const insightDrawerOverlay = document.getElementById('insight-drawer-overlay');
+  const btnCloseDrawer = document.getElementById('btn-close-drawer');
+  
+  const drawerCategory = document.getElementById('drawer-category');
+  const drawerReadTime = document.getElementById('drawer-read-time');
+  const drawerTitleText = document.getElementById('drawer-title-text');
+  const drawerContentText = document.getElementById('drawer-content-text');
+
+  const insightArticles = {
+    'case-1': {
+      category: "Case Study",
+      readTime: "4 min read",
+      title: "How a Leading National Bank Trimmed Token Spending by 74%",
+      content: `
+        <p><strong>Executive Summary</strong><br>A leading domestic bank managing retail credit products experienced exponential API token expenses with the rollout of customer support LLM bots. By deploying Novus and running a hybrid model architecture, the bank reduced total third-party costs by 74% within 60 days.</p>
+        
+        <h3>The Challenge</h3>
+        <p>Proprietary cloud engines (such as GPT-4o) were used to resolve simple user inquiries (e.g. "What is my account balance?"). While accurate, this resulted in an average price of $8.50 per million tokens. For a monthly volume of 450M tokens, this equaled $38,250 in API bills, along with strict compliance risks regarding exposure of credit records (PCI-DSS).</p>
+
+        <blockquote>
+          "We could not justify routing every simple balance lookup through global public APIs. We needed a secure, local orchestration gate."
+        </blockquote>
+
+        <h3>The Solution</h3>
+        <p>The bank configured Novus to operate as an intelligent routing endpoint. Novus was hosted on-premise on private cluster nodes. 
+        All customer prompts are analyzed by the Novus Router. Routine inquiries are routed to private Llama-70B models running offline, costing $0.15/M tokens. Only complex legal audits or financial analysis are routed to cloud APIs after scrubbing PII.</p>
+
+        <h3>Results</h3>
+        <ul>
+          <li><strong>74% decrease</strong> in monthly token billing.</li>
+          <li><strong>Zero PII leaks</strong>: All personal credit card credentials redacted locally.</li>
+          <li><strong>Sub-100ms latency</strong> for routine customer chats.</li>
+        </ul>
+      `
+    },
+    'blog-1': {
+      category: "Blog Post",
+      readTime: "6 min read",
+      title: "Deploying Air-Gapped Private LLMs on Bare Metal DGX Nodes",
+      content: `
+        <p>Running enterprise AI workloads locally requires a highly optimized runtime compiler. In this developer guide, we cover the exact configuration script to stand up a private, air-gapped model using the Novus CLI orchestrator.</p>
+
+        <h3>Prerequisites</h3>
+        <p>Ensure you have the following hardware dependencies installed:</p>
+        <pre><code>- NVIDIA HGX/DGX Node (Minimum 4x H100 80GB GPUs)
+- CUDA v12.2 + cuDNN v8.9
+- Novus CLI (v0.8.2-beta+)</code></pre>
+
+        <h3>Step 1: Environment Initialization</h3>
+        <p>Run the initialization setup. This will verify CUDA cores, locate storage vaults, and configure system clusters:</p>
+        <pre><code>$ novus init --airgapped --registry /mnt/vault/models</code></pre>
+
+        <h3>Step 2: Compile Model Weights</h3>
+        <p>Novus compiles model weights into optimized TensorRT-LLM runtimes on boot. Run the following compile script to load Llama-3-Sovereign:</p>
+        <pre><code>$ novus compile --model llama-3-sovereign-70b --quantization FP8</code></pre>
+
+        <h3>Step 3: Launch Local Endpoint</h3>
+        <p>Spawn the OpenAI-compatible gateway. The server starts listening on localhost port 8080:</p>
+        <pre><code>$ novus deploy --env local --port 8080 --scale-min 2 --scale-max 4</code></pre>
+
+        <h3>Conclusion</h3>
+        <p>Your local developers can now swap their target OpenAI base URL to <code>http://localhost:8080/v1</code>. The Novus Control Plane handles weight mapping, execution logs, and query scheduling automatically.</p>
+      `
+    },
+    'case-2': {
+      category: "Case Study",
+      readTime: "5 min read",
+      title: "Enforcing Strict HIPAA Data Guardrails in Healthcare AI",
+      content: `
+        <p><strong>Executive Summary</strong><br>A medical diagnostics provider successfully implemented generative AI agents for doctors' transcription notes while maintaining 100% compliance with HIPAA and SOC 2 security protocols using the Novus Governance vault.</p>
+
+        <h3>The Challenge</h3>
+        <p>Clinical logs contain highly sensitive patient health details (PHI). Exposing this raw text to public API provider servers violates federal HIPAA regulations. However, local SLMs lacked the clinical terminology knowledge of advanced cloud models.</p>
+
+        <h3>The Solution</h3>
+        <p>The provider deployed Novus as an active security buffer. When a transcription prompt is created:
+        1. Novus scans the text for PHI parameters (patient names, phone numbers, treatment IDs).
+        2. Personal indicators are automatically replaced with anonymous tokens (e.g., [PATIENT_A_REDACTED]).
+        3. The sanitized clinical description is routed to cloud models for processing.
+        4. The response is received, and Novus re-inserts the patient name locally before rendering to the physician's screen.</p>
+
+        <h3>Outcomes</h3>
+        <ul>
+          <li><strong>100% compliant HIPAA pipeline</strong> audited by independent auditors.</li>
+          <li><strong>Zero medical data stored</strong> outside the hospital firewall.</li>
+          <li><strong>Accelerated deployment</strong>: Clinical transcription bot launched in 3 weeks instead of 9 months.</li>
+        </ul>
+      `
+    }
+  };
+
+  insightCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const cardId = card.getAttribute('data-id');
+      const article = insightArticles[cardId];
+      if (article) {
+        drawerCategory.textContent = article.category;
+        drawerReadTime.textContent = article.readTime;
+        drawerTitleText.textContent = article.title;
+        drawerContentText.innerHTML = article.content;
+
+        insightDrawerOverlay.classList.add('active');
+        insightDrawerOverlay.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+
+  function closeDrawer() {
+    insightDrawerOverlay.classList.remove('active');
+    insightDrawerOverlay.setAttribute('aria-hidden', 'true');
+  }
+
+  if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', closeDrawer);
+  
+  if (insightDrawerOverlay) {
+    insightDrawerOverlay.addEventListener('click', (e) => {
+      if (e.target === insightDrawerOverlay) {
+        closeDrawer();
+      }
+    });
+  }
 
   /* ==========================================================================
      5. Scroll-Driven Animation Fallbacks (IntersectionObserver)

@@ -14,35 +14,46 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dark-theme">
-  <!-- Glowing Background Orbs -->
+<body>
+  <!-- Glowing Background Grid & Orbs -->
+  <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
   <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
   
-  <!-- Navigation Header -->
-  <header class="main-header">
-    <div class="header-container">
-      <a href="#" class="logo-container" id="nav-logo">
-        <span class="logo-icon">▲</span>
-        <span class="logo-text">novus<span class="logo-accent">.ai</span></span>
-      </a>
-      
-      <nav class="main-nav" aria-label="Main Navigation">
-        <ul>
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#router-demo" class="nav-link">Interactive Router</a></li>
-          <li><a href="#calculator" class="nav-link">ROI Calculator</a></li>
-          <li><a href="#sectors" class="nav-link">Sectors</a></li>
-          <li><a href="#code-compare" class="nav-link">Developer API</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-cta">
-        <a href="#register-beta" class="btn btn-primary btn-sm" id="header-cta-btn">Join Beta Program</a>
-      </div>
+  <!-- Sticky Header & Banner Wrapper -->
+  <div class="sticky-header-wrapper">
+    <!-- Top Announcement Banner -->
+    <div class="top-banner">
+      <span class="banner-badge">Enterprise Update</span>
+      <span>July Drop 2026: Auto-scale local weights, route hybrid workloads, and govern PII.</span>
+      <a href="#insights" class="banner-link">See what's new →</a>
     </div>
-  </header>
+    
+    <!-- Navigation Header -->
+    <header class="main-header">
+      <div class="header-container">
+        <a href="#" class="logo-container" id="nav-logo">
+          <span class="logo-icon">▲</span>
+          <span class="logo-text">novus<span class="logo-accent">.ai</span></span>
+        </a>
+        
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="#control-plane" class="nav-link">Control Plane</a></li>
+            <li><a href="#deployments" class="nav-link">Deployments</a></li>
+            <li><a href="#router-demo" class="nav-link">AI Router</a></li>
+            <li><a href="#calculator" class="nav-link">ROI FinOps</a></li>
+            <li><a href="#insights" class="nav-link">Insights</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-cta">
+          <a href="#register-beta" class="btn btn-primary btn-sm" id="header-cta-btn">Request Demo</a>
+        </div>
+      </div>
+    </header>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero-section" id="hero">
@@ -53,8 +64,8 @@
       </div>
       
       <h1 class="hero-title">
-        Your Enterprise AI.<br>
-        <span class="text-gradient">Every Model. One Runtime.</span>
+        Enterprise AI Runtime.<br>
+        <span class="text-gradient">Unified Control Plane.</span>
       </h1>
       
       <p class="hero-subtitle">
@@ -62,8 +73,8 @@
       </p>
       
       <div class="hero-actions">
-        <a href="#register-beta" class="btn btn-primary" id="hero-primary-cta">Request Beta Access</a>
-        <a href="#router-demo" class="btn btn-secondary" id="hero-secondary-cta">Try Interactive Demo</a>
+        <a href="#register-beta" class="btn btn-primary" id="hero-primary-cta">Request Enterprise Access</a>
+        <a href="#router-demo" class="btn btn-secondary" id="hero-secondary-cta">See How It Works</a>
       </div>
 
       <!-- Quick Command Container -->
@@ -152,6 +163,107 @@
     </div>
   </section>
 
+  <!-- Enterprise AI Control Plane Section -->
+  <section class="control-plane-section" id="control-plane">
+    <div class="container">
+      <div class="section-header">
+        <span class="cp-display-tag">Sovereign Control</span>
+        <h2 class="section-title">Enterprise AI Control Plane</h2>
+        <p class="section-description">A single administrative plane to evaluate, deploy, scale, observe, and govern your entire model portfolio across any infrastructure.</p>
+      </div>
+
+      <div class="control-plane-container">
+        <!-- Sidebar Navigation Tabs -->
+        <div class="control-plane-nav">
+          <button class="cp-tab-btn active" data-tab="eval">
+            <span class="cp-tab-icon">🧪</span>
+            <div class="cp-tab-text-group">
+              <span class="cp-tab-title">1. Evaluate</span>
+              <span class="cp-tab-desc">Continuous model alignment & bias testing</span>
+            </div>
+          </button>
+          
+          <button class="cp-tab-btn" data-tab="deploy">
+            <span class="cp-tab-icon">🚀</span>
+            <div class="cp-tab-text-group">
+              <span class="cp-tab-title">2. Deploy</span>
+              <span class="cp-tab-desc">1-click cloud & on-prem release engine</span>
+            </div>
+          </button>
+          
+          <button class="cp-tab-btn" data-tab="scale">
+            <span class="cp-tab-icon">📈</span>
+            <div class="cp-tab-text-group">
+              <span class="cp-tab-title">3. Scale</span>
+              <span class="cp-tab-desc">Dynamic GPU auto-scaling mesh</span>
+            </div>
+          </button>
+          
+          <button class="cp-tab-btn" data-tab="observe">
+            <span class="cp-tab-icon">👁️</span>
+            <div class="cp-tab-text-group">
+              <span class="cp-tab-title">4. Observe</span>
+              <span class="cp-tab-desc">Telemetry tracing & cost logs</span>
+            </div>
+          </button>
+          
+          <button class="cp-tab-btn" data-tab="govern">
+            <span class="cp-tab-icon">🛡️</span>
+            <div class="cp-tab-text-group">
+              <span class="cp-tab-title">5. Govern</span>
+              <span class="cp-tab-desc">PII scrubbing & compliance filters</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Dashboard Console Display Screen -->
+        <div class="control-plane-display" id="cp-display-panel">
+          <div class="cp-display-header">
+            <span class="cp-display-tag" id="cp-tag">Verification</span>
+            <h3 class="cp-display-title" id="cp-title">Model Evaluation Engine</h3>
+            <p class="cp-display-description" id="cp-desc">Run off-line evaluation benchmarks on customized datasets before deploying new private model weights.</p>
+          </div>
+          
+          <div class="cp-display-body">
+            <!-- Telemetry / SVG / Pure CSS Visuals -->
+            <div class="cp-visual-panel" id="cp-visual">
+              <div class="eval-chart">
+                <div class="eval-chart-bar" style="height: 94%" data-val="94%"></div>
+                <div class="eval-chart-bar" style="height: 87%" data-val="87%"></div>
+                <div class="eval-chart-bar" style="height: 91%" data-val="91%"></div>
+                <div class="eval-chart-bar" style="height: 78%" data-val="78%"></div>
+              </div>
+              <div style="display: flex; justify-content: space-around; width: 100%;">
+                <span class="eval-chart-label">Accuracy</span>
+                <span class="eval-chart-label">Safety</span>
+                <span class="eval-chart-label">Frugality</span>
+                <span class="eval-chart-label">Latency</span>
+              </div>
+            </div>
+            
+            <!-- Side notes -->
+            <div class="cp-detail-notes" id="cp-notes">
+              <div class="cp-note-item">
+                <div class="cp-note-title">
+                  <span class="cp-note-icon">✦</span>
+                  <span>Custom Benchmarks</span>
+                </div>
+                <div class="cp-note-body">Upload your industry test suites (MMLU, GSM8k, or private QA sheets) to run regression testing in seconds.</div>
+              </div>
+              <div class="cp-note-item">
+                <div class="cp-note-title">
+                  <span class="cp-note-icon">✦</span>
+                  <span>Drift Assessment</span>
+                </div>
+                <div class="cp-note-body">Detect semantic drift in user prompt flows and compare live responses against target gold standards.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Architecture Visual Flow Section -->
   <section class="architecture-section" id="architecture">
     <div class="container">
@@ -182,31 +294,31 @@
             
             <!-- Nodes -->
             <!-- Apps Input Node -->
-            <rect x="20" y="110" width="140" height="80" rx="10" fill="#151b30" stroke="#00f2fe" stroke-width="2" />
-            <text x="90" y="150" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="600" text-anchor="middle">Enterprise Apps</text>
-            <text x="90" y="170" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Sends API Request</text>
-            
-            <!-- Gateway / Router Node -->
-            <rect x="280" y="80" width="220" height="140" rx="12" fill="url(#cyan-violet)" filter="url(#glow)" />
-            <text x="390" y="125" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" text-anchor="middle">NOVUS OS</text>
-            <text x="390" y="150" fill="#e4e6eb" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" text-anchor="middle">Universal AI Control Plane</text>
-            <text x="390" y="180" fill="#00f2fe" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="1">POLICIES &amp; ROUTING</text>
-            
-            <!-- Target Nodes -->
-            <!-- Private SLMs -->
-            <rect x="620" y="20" width="160" height="70" rx="10" fill="#151b30" stroke="#0575e6" stroke-width="2" />
-            <text x="700" y="50" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Private SLMs (On-Prem)</text>
-            <text x="700" y="70" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Llama 4, Qwen, DeepSeek</text>
-
-            <!-- Public Cloud APIs -->
-            <rect x="620" y="120" width="160" height="70" rx="10" fill="#151b30" stroke="#7f00ff" stroke-width="2" />
-            <text x="700" y="150" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Proprietary Cloud APIs</text>
-            <text x="700" y="170" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">OpenAI, Claude, Gemini</text>
-
-            <!-- Hybrid Edge/Local -->
-            <rect x="620" y="220" width="160" height="70" rx="10" fill="#151b30" stroke="#f857a6" stroke-width="2" />
-            <text x="700" y="250" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Edge Deployments</text>
-            <text x="700" y="270" fill="#8f9bb3" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Local GPU / IoT Device</text>
+             <rect x="20" y="110" width="140" height="80" rx="10" fill="#ffffff" stroke="var(--accent-violet)" stroke-width="1.5" />
+             <text x="90" y="146" fill="var(--text-primary)" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="600" text-anchor="middle">Enterprise Apps</text>
+             <text x="90" y="166" fill="var(--text-secondary)" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Sends API Request</text>
+             
+             <!-- Gateway / Router Node -->
+             <rect x="280" y="80" width="220" height="140" rx="12" fill="url(#cyan-violet)" filter="url(#glow)" />
+             <text x="390" y="125" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" text-anchor="middle">NOVUS OS</text>
+             <text x="390" y="150" fill="#e4e6eb" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" text-anchor="middle">Universal AI Control Plane</text>
+             <text x="390" y="180" fill="var(--accent-cyan)" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="1">POLICIES &amp; ROUTING</text>
+             
+             <!-- Target Nodes -->
+             <!-- Private SLMs -->
+             <rect x="620" y="20" width="160" height="70" rx="10" fill="#ffffff" stroke="var(--accent-cyan)" stroke-width="1.5" />
+             <text x="700" y="46" fill="var(--text-primary)" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Private SLMs (On-Prem)</text>
+             <text x="700" y="66" fill="var(--text-secondary)" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Llama 4, Qwen, DeepSeek</text>
+  
+             <!-- Public Cloud APIs -->
+             <rect x="620" y="120" width="160" height="70" rx="10" fill="#ffffff" stroke="var(--accent-violet)" stroke-width="1.5" />
+             <text x="700" y="146" fill="var(--text-primary)" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Proprietary Cloud APIs</text>
+             <text x="700" y="166" fill="var(--text-secondary)" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">OpenAI, Claude, Gemini</text>
+  
+             <!-- Hybrid Edge/Local -->
+             <rect x="620" y="220" width="160" height="70" rx="10" fill="#ffffff" stroke="var(--accent-pink)" stroke-width="1.5" />
+             <text x="700" y="246" fill="var(--text-primary)" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">Edge Deployments</text>
+             <text x="700" y="266" fill="var(--text-secondary)" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Local GPU / IoT Device</text>
             
             <!-- Dynamic Path Connectors -->
             <!-- Input to Router -->
@@ -232,6 +344,66 @@
         <div class="arch-description-box" id="arch-description">
           <h4 class="arch-box-title" id="arch-title-text">Active Configuration: Private Sovereign Cloud</h4>
           <p class="arch-box-body" id="arch-body-text">Requests are run inside a private server enclosure or dedicated Kubernetes node. Zero training or inference data travels outside the corporate firewall. Compliant with military, BFSI, and strict national privacy mandates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud Agnostic Deployments & Scaling Section -->
+  <section class="deployments-section" id="deployments">
+    <div class="container">
+      <div class="section-header">
+        <span class="cp-display-tag">Infrastructure Agnostic</span>
+        <h2 class="section-title">Deploy Anywhere. Scale Effortlessly.</h2>
+        <p class="section-description">Novus fits into your existing architecture, whether you are running in the cloud, on private bare-metal servers, or in a hybrid network mesh.</p>
+      </div>
+
+      <div class="deployments-grid">
+        <!-- On-Prem / Bare Metal -->
+        <div class="deploy-card">
+          <div class="deploy-card-icon">🏢</div>
+          <h4 class="deploy-card-title">On-Premises &amp; Air-Gapped</h4>
+          <p class="deploy-card-body">Deploy models locally behind strict firewalls on NVIDIA DGX nodes, Dell PowerEdge, or local hardware with full data residency compliance.</p>
+          <div class="deploy-card-platforms">
+            <span class="platform-badge">Bare Metal</span>
+            <span class="platform-badge">VMware vSphere</span>
+            <span class="platform-badge">OpenShift</span>
+          </div>
+        </div>
+
+        <!-- Public/Private VPC Clouds -->
+        <div class="deploy-card">
+          <div class="deploy-card-icon">☁️</div>
+          <h4 class="deploy-card-title">Virtual Private Clouds</h4>
+          <p class="deploy-card-body">Run inside your sovereign enterprise accounts across major global hyperscalers using isolated VPC cluster subnets.</p>
+          <div class="deploy-card-platforms">
+            <span class="platform-badge">AWS VPC</span>
+            <span class="platform-badge">GCP VPC</span>
+            <span class="platform-badge">Azure VPC</span>
+            <span class="platform-badge">DigitalOcean</span>
+          </div>
+        </div>
+
+        <!-- Hybrid & Multi-Cloud Mesh -->
+        <div class="deploy-card">
+          <div class="deploy-card-icon">🕸️</div>
+          <h4 class="deploy-card-title">Hybrid Cluster Mesh</h4>
+          <p class="deploy-card-body">Dynamically scale inference workloads by utilizing local hardware for baseline traffic, and burst to cloud VPCs when demand spikes.</p>
+          <div class="deploy-card-platforms">
+            <span class="platform-badge">Kubernetes</span>
+            <span class="platform-badge">Docker Swarm</span>
+            <span class="platform-badge">HashiCorp Nomad</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Command Line Widget showing 1-click deployment & scaling -->
+      <div class="deploy-action-box">
+        <h4 class="deploy-action-title">Deploy with a single command line</h4>
+        <p class="deploy-action-text">Initialize your private gateway and scale up nodes with the native Novus orchestrator tool.</p>
+        <div class="deploy-cmd-widget">
+          <span class="deploy-cmd-text" id="deploy-cmd-text">novus deploy --env sovereign --scale-min 2 --scale-max 20 --autoscale</span>
+          <button class="btn-copy-cmd" id="btn-copy-deploy-cmd" aria-label="Copy deployment command">📋 Copy</button>
         </div>
       </div>
     </div>
@@ -544,6 +716,68 @@ client = openai.OpenAI(
     </div>
   </section>
 
+  <!-- Insights & Publications (Case Studies & Blog) Section -->
+  <section class="insights-section" id="insights">
+    <div class="container">
+      <div class="section-header">
+        <span class="cp-display-tag">Enterprise Success</span>
+        <h2 class="section-title">Case Studies &amp; Technical Insights</h2>
+        <p class="section-description">Read how leading organizations leverage Novus to own their intelligence, govern workloads, and reduce API token spends.</p>
+      </div>
+
+      <!-- Tabs to toggle between Case Studies and Blog Articles -->
+      <div class="insights-tabs">
+        <button class="insights-tab-btn active" data-filter="all">All insights</button>
+        <button class="insights-tab-btn" data-filter="case-study">Case Studies</button>
+        <button class="insights-tab-btn" data-filter="blog">Blog Articles</button>
+      </div>
+
+      <div class="insights-grid" id="insights-container">
+        <!-- Item 1 (Case Study) -->
+        <div class="insight-card" data-type="case-study" data-id="case-1">
+          <div class="insight-card-image-placeholder">🏦</div>
+          <div class="insight-card-content">
+            <div class="insight-card-meta">
+              <span class="insight-card-category">Case Study</span>
+              <span class="insight-card-read">4 min read</span>
+            </div>
+            <h4 class="insight-card-title">How a Leading National Bank Trimmed Token Spending by 74%</h4>
+            <p class="insight-card-excerpt">By routing baseline customer support inquiries to private Llama-70B clusters and falling back to proprietary LLMs only for audits, the bank saved millions.</p>
+            <span class="insight-card-link">Read Case Study →</span>
+          </div>
+        </div>
+
+        <!-- Item 2 (Blog Article) -->
+        <div class="insight-card" data-type="blog" data-id="blog-1">
+          <div class="insight-card-image-placeholder">💻</div>
+          <div class="insight-card-content">
+            <div class="insight-card-meta">
+              <span class="insight-card-category">Blog Post</span>
+              <span class="insight-card-read">6 min read</span>
+            </div>
+            <h4 class="insight-card-title">Deploying Air-Gapped Private LLMs on Bare Metal DGX Nodes</h4>
+            <p class="insight-card-excerpt">A step-by-step developer's setup guide on compiling, optimizing, and deploying LLMs offline using the Novus sovereign CLI.</p>
+            <span class="insight-card-link">Read Article →</span>
+          </div>
+        </div>
+
+        <!-- Item 3 (Case Study) -->
+        <div class="insight-card" data-type="case-study" data-id="case-2">
+          <div class="insight-card-image-placeholder">🏥</div>
+          <div class="insight-card-content">
+            <div class="insight-card-meta">
+              <span class="insight-card-category">Case Study</span>
+              <span class="insight-card-read">5 min read</span>
+            </div>
+            <h4 class="insight-card-title">Enforcing Strict HIPAA Data Guardrails in Healthcare AI</h4>
+            <p class="insight-card-excerpt">Discover how a medical research center utilizes Novus local scrubbing models to audit clinical trial entries before routing queries.</p>
+            <span class="insight-card-link">Read Case Study →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Customer Interest Registration Form Section -->
   <section class="register-section" id="register-beta">
     <div class="container register-container">
@@ -656,6 +890,26 @@ client = openai.OpenAI(
       <p class="modal-body-text">Thank you for registering your interest in the Novus Enterprise AI Runtime beta program. Our Solutions Engineering group will review your deployment details and contact you at your work email with custom login access credentials within 48 hours.</p>
       <div class="modal-actions">
         <button class="btn btn-primary" id="btn-dismiss-modal">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insight Slide-Over Reader Drawer -->
+  <div class="insight-drawer-overlay" id="insight-drawer-overlay" aria-hidden="true">
+    <div class="insight-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title-text">
+      <div class="insight-drawer-header">
+        <span class="logo-text">novus<span class="logo-accent">.insight</span></span>
+        <button class="btn-close-drawer" id="btn-close-drawer" aria-label="Close drawer">&times;</button>
+      </div>
+      <div class="insight-drawer-body">
+        <div class="drawer-meta">
+          <span class="drawer-category" id="drawer-category">Case Study</span>
+          <span id="drawer-read-time">5 min read</span>
+        </div>
+        <h3 class="drawer-title" id="drawer-title-text">Insight Loading...</h3>
+        <div class="drawer-text" id="drawer-content-text">
+          <!-- Text will be dynamically populated -->
+        </div>
       </div>
     </div>
   </div>
