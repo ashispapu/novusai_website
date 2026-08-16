@@ -1,5 +1,5 @@
 /**
- * Novus Enterprise AI Runtime OS - Portal JS Logic
+ * Niyan Enterprise AI Control Plane OS - Portal JS Logic
  * Contains interactive widgets, SVG visualizers, ROI formulas, and forms.
  */
 
@@ -21,17 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     private: {
       title: "Active Configuration: Private Sovereign Cloud",
       body: "Requests are run inside a private server enclosure or dedicated Kubernetes node. Zero training or inference data travels outside the corporate firewall. Compliant with military, BFSI, and strict national privacy mandates.",
-      paths: { private: { stroke: '#00f2fe', width: '3', dash: '0' }, cloud: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' }, edge: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' } }
+      paths: { private: { stroke: 'var(--accent-cyan)', width: '2.5', dash: '0' }, cloud: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, edge: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' } }
     },
     cloud: {
       title: "Active Configuration: Hybrid Failover API",
       body: "Leverages public hyperscale APIs (OpenAI, Claude, Gemini) for highly creative or unconstrained prompts. The system routes transit requests through a secure egress gateway with automated data scrubbing and masking filter arrays.",
-      paths: { private: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' }, cloud: { stroke: '#7f00ff', width: '3', dash: '0' }, edge: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' } }
+      paths: { private: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, cloud: { stroke: 'var(--accent-violet)', width: '2.5', dash: '0' }, edge: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' } }
     },
     edge: {
       title: "Active Configuration: Local Edge Compute",
       body: "Deploys models directly on low-latency field machines (e.g. factory floor nodes, mobile devices, local offices). Automatically synchronizes weights and telemetry with the central control mesh when online.",
-      paths: { private: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' }, cloud: { stroke: 'rgba(255,255,255,0.1)', width: '1.5', dash: '4' }, edge: { stroke: '#f857a6', width: '3', dash: '0' } }
+      paths: { private: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, cloud: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, edge: { stroke: 'var(--accent-pink)', width: '2.5', dash: '0' } }
     }
   };
 
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Formulas
     const currentAnnualCost = monthlyTokens * avgCloudPrice * 12;
     
-    // Novus cost comprises private token share + cloud fallback share + license overhead
+    // Niyan AI cost comprises private token share + cloud fallback share + license overhead
     const privateShareCost = (monthlyTokens * privateRatio) * PRIVATE_COST_PER_MILLION * 12;
     const cloudShareCost = (monthlyTokens * (1 - privateRatio)) * avgCloudPrice * 12;
     const novusAnnualCost = privateShareCost + cloudShareCost + MOCK_PLATFORM_OVERHEAD;
@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Save to LocalStorage for review
         try {
-          const key = 'novus_leads';
+          const key = 'niyan_leads';
           const existingLeads = JSON.parse(localStorage.getItem(key)) || [];
           existingLeads.push(lead);
           localStorage.setItem(key, JSON.stringify(existingLeads));
@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="deploy-mesh-visual">
           <div class="mesh-node source">Dev</div>
           <div class="mesh-line"><span class="mesh-pulse"></span></div>
-          <div class="mesh-node">Novus</div>
+          <div class="mesh-node">Niyan</div>
           <div class="mesh-line"><span class="mesh-pulse"></span></div>
           <div class="mesh-node">Prod</div>
         </div>
@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
       notes: `
         <div class="cp-note-item">
           <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>1-Click Helm Deploy</span></div>
-          <div class="cp-note-body">Deploy Novus control plane containers directly inside your Kubernetes VPC or private cluster mesh using a unified script.</div>
+          <div class="cp-note-body">Deploy Niyan control plane containers directly inside your Kubernetes VPC or private cluster mesh using a unified script.</div>
         </div>
         <div class="cp-note-item">
           <div class="cp-note-title"><span class="cp-note-icon">✦</span><span>Model Registry Sync</span></div>
@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
       readTime: "4 min read",
       title: "How a Leading National Bank Trimmed Token Spending by 74%",
       content: `
-        <p><strong>Executive Summary</strong><br>A leading domestic bank managing retail credit products experienced exponential API token expenses with the rollout of customer support LLM bots. By deploying Novus and running a hybrid model architecture, the bank reduced total third-party costs by 74% within 60 days.</p>
+        <p><strong>Executive Summary</strong><br>A leading domestic bank managing retail credit products experienced exponential API token expenses with the rollout of customer support LLM bots. By deploying Niyan AI and running a hybrid model architecture, the bank reduced total third-party costs by 74% within 60 days.</p>
         
         <h3>The Challenge</h3>
         <p>Proprietary cloud engines (such as GPT-4o) were used to resolve simple user inquiries (e.g. "What is my account balance?"). While accurate, this resulted in an average price of $8.50 per million tokens. For a monthly volume of 450M tokens, this equaled $38,250 in API bills, along with strict compliance risks regarding exposure of credit records (PCI-DSS).</p>
@@ -678,8 +678,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </blockquote>
 
         <h3>The Solution</h3>
-        <p>The bank configured Novus to operate as an intelligent routing endpoint. Novus was hosted on-premise on private cluster nodes. 
-        All customer prompts are analyzed by the Novus Router. Routine inquiries are routed to private Llama-70B models running offline, costing $0.15/M tokens. Only complex legal audits or financial analysis are routed to cloud APIs after scrubbing PII.</p>
+        <p>The bank configured Niyan AI to operate as an intelligent routing endpoint. Niyan AI was hosted on-premise on private cluster nodes. 
+        All customer prompts are analyzed by the Niyan AI Router. Routine inquiries are routed to private Llama-70B models running offline, costing $0.15/M tokens. Only complex legal audits or financial analysis are routed to cloud APIs after scrubbing PII.</p>
 
         <h3>Results</h3>
         <ul>
@@ -694,28 +694,28 @@ document.addEventListener('DOMContentLoaded', () => {
       readTime: "6 min read",
       title: "Deploying Air-Gapped Private LLMs on Bare Metal DGX Nodes",
       content: `
-        <p>Running enterprise AI workloads locally requires a highly optimized runtime compiler. In this developer guide, we cover the exact configuration script to stand up a private, air-gapped model using the Novus CLI orchestrator.</p>
+        <p>Running enterprise AI workloads locally requires a highly optimized runtime compiler. In this developer guide, we cover the exact configuration script to stand up a private, air-gapped model using the Niyan CLI orchestrator.</p>
 
         <h3>Prerequisites</h3>
         <p>Ensure you have the following hardware dependencies installed:</p>
         <pre><code>- NVIDIA HGX/DGX Node (Minimum 4x H100 80GB GPUs)
 - CUDA v12.2 + cuDNN v8.9
-- Novus CLI (v0.8.2-beta+)</code></pre>
+- Niyan CLI (v0.8.2-beta+)</code></pre>
 
         <h3>Step 1: Environment Initialization</h3>
         <p>Run the initialization setup. This will verify CUDA cores, locate storage vaults, and configure system clusters:</p>
-        <pre><code>$ novus init --airgapped --registry /mnt/vault/models</code></pre>
+        <pre><code>$ niyan init --airgapped --registry /mnt/vault/models</code></pre>
 
         <h3>Step 2: Compile Model Weights</h3>
-        <p>Novus compiles model weights into optimized TensorRT-LLM runtimes on boot. Run the following compile script to load Llama-3-Sovereign:</p>
-        <pre><code>$ novus compile --model llama-3-sovereign-70b --quantization FP8</code></pre>
+        <p>Niyan compiles model weights into optimized TensorRT-LLM runtimes on boot. Run the following compile script to load Llama-3-Sovereign:</p>
+        <pre><code>$ niyan compile --model llama-3-sovereign-70b --quantization FP8</code></pre>
 
         <h3>Step 3: Launch Local Endpoint</h3>
         <p>Spawn the OpenAI-compatible gateway. The server starts listening on localhost port 8080:</p>
-        <pre><code>$ novus deploy --env local --port 8080 --scale-min 2 --scale-max 4</code></pre>
+        <pre><code>$ niyan deploy --env local --port 8080 --scale-min 2 --scale-max 4</code></pre>
 
         <h3>Conclusion</h3>
-        <p>Your local developers can now swap their target OpenAI base URL to <code>http://localhost:8080/v1</code>. The Novus Control Plane handles weight mapping, execution logs, and query scheduling automatically.</p>
+        <p>Your local developers can now swap their target OpenAI base URL to <code>http://localhost:8080/v1</code>. The Niyan AI Control Plane handles weight mapping, execution logs, and query scheduling automatically.</p>
       `
     },
     'case-2': {
@@ -723,17 +723,17 @@ document.addEventListener('DOMContentLoaded', () => {
       readTime: "5 min read",
       title: "Enforcing Strict HIPAA Data Guardrails in Healthcare AI",
       content: `
-        <p><strong>Executive Summary</strong><br>A medical diagnostics provider successfully implemented generative AI agents for doctors' transcription notes while maintaining 100% compliance with HIPAA and SOC 2 security protocols using the Novus Governance vault.</p>
+        <p><strong>Executive Summary</strong><br>A medical diagnostics provider successfully implemented generative AI agents for doctors' transcription notes while maintaining 100% compliance with HIPAA and SOC 2 security protocols using the Niyan AI Governance vault.</p>
 
         <h3>The Challenge</h3>
         <p>Clinical logs contain highly sensitive patient health details (PHI). Exposing this raw text to public API provider servers violates federal HIPAA regulations. However, local SLMs lacked the clinical terminology knowledge of advanced cloud models.</p>
 
         <h3>The Solution</h3>
-        <p>The provider deployed Novus as an active security buffer. When a transcription prompt is created:
-        1. Novus scans the text for PHI parameters (patient names, phone numbers, treatment IDs).
+        <p>The provider deployed Niyan AI as an active security buffer. When a transcription prompt is created:
+        1. Niyan AI scans the text for PHI parameters (patient names, phone numbers, treatment IDs).
         2. Personal indicators are automatically replaced with anonymous tokens (e.g., [PATIENT_A_REDACTED]).
         3. The sanitized clinical description is routed to cloud models for processing.
-        4. The response is received, and Novus re-inserts the patient name locally before rendering to the physician's screen.</p>
+        4. The response is received, and Niyan AI re-inserts the patient name locally before rendering to the physician's screen.</p>
 
         <h3>Outcomes</h3>
         <ul>
