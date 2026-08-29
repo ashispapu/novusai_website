@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Subscribe to Niyan AI. Choose a VM-based install today, or join the waitlist for Kubernetes cloud deployments.">
+  <title>Subscription | Niyan AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="subscription-page">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <div class="sticky-header-wrapper">
+    <div class="top-banner">
+      <span class="banner-badge">Enterprise Update</span>
+      <span>Aug Drop 2026: Novus is now rebranded to Niyan AI, derived from Sanskrit word 'Niyantran'</span>
+      <a href="index.html#insights" class="banner-link">See what's new →</a>
+    </div>
+
+    <header class="main-header">
+      <div class="header-container">
+        <a href="index.html" class="logo-container" id="nav-logo">
+          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="index.html#features" class="nav-link">Features</a></li>
+            <li><a href="index.html#control-plane" class="nav-link">Control Plane</a></li>
+            <li><a href="index.html#deployments" class="nav-link">Deployments</a></li>
+            <li><a href="index.html#router-demo" class="nav-link">AI Router</a></li>
+            <li><a href="index.html#calculator" class="nav-link">ROI FinOps</a></li>
+            <li><a href="index.html#insights" class="nav-link">Insights</a></li>
+            <li><a href="subscription.html" class="nav-link active" aria-current="page">Subscription</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-cta">
+          <a href="index.html#register-beta" class="btn btn-primary btn-sm">Request Demo</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <section class="sub-hero">
+      <div class="container sub-hero-inner">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Enterprise Subscription</span>
+        </div>
+        <h1 class="hero-title">Choose your <span class="text-gradient">deployment path.</span></h1>
+        <p class="hero-subtitle">
+          Start with a dedicated VM install today. Kubernetes cloud orchestration is in private preview and will open
+          next.
+        </p>
+      </div>
+    </section>
+
+    <section class="sub-plans-section" aria-labelledby="plan-heading">
+      <div class="container">
+        <h2 id="plan-heading" class="visually-hidden">Subscription plans</h2>
+        <div class="plan-grid">
+          <button type="button" class="plan-card" id="plan-vm" aria-pressed="false">
+            <span class="plan-icon" aria-hidden="true">🖥️</span>
+            <span class="plan-kicker">Available now</span>
+            <h3 class="plan-title">VM based</h3>
+            <p class="plan-text">Install Niyan on a dedicated virtual machine or bare-metal host. You receive GHCR
+              credentials and a one-command installer after subscription.</p>
+            <span class="plan-cta">Select VM install →</span>
+          </button>
+
+          <button type="button" class="plan-card plan-card--soon" id="plan-k8s" aria-disabled="true">
+            <span class="coming-soon-badge">Coming soon</span>
+            <span class="plan-icon" aria-hidden="true">☸️</span>
+            <span class="plan-kicker">Private preview</span>
+            <h3 class="plan-title">Cloud based <span class="plan-title-sub">(Kubernetes)</span></h3>
+            <p class="plan-text">Managed Niyan control plane on Kubernetes — autoscaling nodes, Helm charts, and
+              multi-cluster routing. Not yet available for self-serve subscription.</p>
+            <span class="plan-cta plan-cta--muted">Notify me when it ships</span>
+          </button>
+        </div>
+
+        <p class="k8s-toast" id="k8s-toast" hidden role="status">Kubernetes cloud deployments are coming soon. VM based
+          install is available today.</p>
+      </div>
+    </section>
+
+    <section class="sub-detail-section" id="subscription-detail" hidden>
+      <div class="container sub-detail-container">
+        <div class="register-form-card" id="vm-subscribe-card">
+          <span class="badge badge-accent">VM subscription</span>
+          <h2 class="register-heading">Activate your VM install</h2>
+          <p class="register-text">Share your work email so we can bind a license key and GHCR pull token to your
+            organization. Install steps appear immediately after you subscribe.</p>
+
+          <form id="vm-subscription-form" class="beta-form" novalidate>
+            <div class="form-group">
+              <label for="sub-name" class="form-label">Full Name</label>
+              <input type="text" id="sub-name" name="fullname" class="form-control" autocomplete="name" required
+                placeholder="Alex Mercer">
+            </div>
+            <div class="form-group">
+              <label for="sub-email" class="form-label">Work Email</label>
+              <input type="email" id="sub-email" name="email" class="form-control" autocomplete="email" required
+                placeholder="alex@company.com">
+            </div>
+            <div class="form-group">
+              <label for="sub-company" class="form-label">Organization Name</label>
+              <input type="text" id="sub-company" name="company" class="form-control" required
+                placeholder="Acme Corporation">
+            </div>
+            <div class="form-group checkbox-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="sub-consent" name="consent" required>
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text font-small">I agree to receive a private install invite, license key, and
+                  GHCR credentials for this VM subscription. Credentials are not published on the public site.</span>
+              </label>
+            </div>
+            <button type="submit" id="btn-vm-subscribe" class="btn btn-primary btn-block">Get VM Subscription</button>
+          </form>
+        </div>
+
+        <div class="install-card" id="vm-install-card" hidden>
+          <div class="install-card-header">
+            <span class="badge badge-success">Subscription active</span>
+            <h2 class="register-heading">Your VM install instructions</h2>
+            <p class="register-text" id="install-welcome">Use the values from your invite email for the PAT, GitHub
+              username, and license JWT. These commands are shown only after subscription.</p>
+          </div>
+
+          <div class="install-toolbar">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-copy-all">Copy all commands</button>
+            <span class="copy-status" id="copy-status" role="status"></span>
+          </div>
+
+          <div class="terminal-container install-terminal">
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+              </div>
+              <div class="terminal-title">bash — niyan-vm-install.sh</div>
+            </div>
+            <pre class="terminal-body install-pre" id="install-commands"><code># 1) Log in to GHCR (from invite email — NOT on public website)
+echo '&lt;READ_ONLY_PAT&gt;' | docker login ghcr.io -u &lt;GITHUB_USER&gt; --password-stdin
+
+# 2) Install (small download from your site)
+export NIYAN_BUNDLE_URL='https://yourwebsite.com/niyan/niyan-bundle-0.1.0.tgz'
+export NIYAN_LICENSE_KEY='&lt;jwt from invite email&gt;'
+# NIYAN_PULL_ON_INSTALL=1 is the default — pulls images after install
+curl -fsSL https://yourwebsite.com/niyan/install.sh | bash
+source ~/.zshrc
+
+# 3) Start stack (pulls private Niyan images + public OSS if not already pulled)
+niyan doctor
+niyan up --pull    # or: niyan pull &amp;&amp; niyan up
+</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="index.html" class="logo-container">
+          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+        </a>
+        <p class="footer-tagline">The Enterprise AI Control Plane. Run Anywhere. Optimize Automatically. Govern
+          Centrally.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="index.html#architecture">Architecture Mesh</a></li>
+            <li><a href="index.html#router-demo">AI Router Core</a></li>
+            <li><a href="index.html#code-compare">SDK Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="index.html#sectors">BFSI Framework</a></li>
+            <li><a href="index.html#sectors">HIPAA Healthcare</a></li>
+            <li><a href="index.html#sectors">Sovereign Government</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#register-beta">Request Access</a></li>
+            <li><a href="subscription.html">Subscription</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Niyan AI Lab. All rights reserved. Self-hosted AI orchestration framework licensed under Apache
+        2.0.</p>
+    </div>
+  </footer>
+
+  <script src="subscription.js"></script>
+</body>
+
+</html>
