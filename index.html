@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -7,22 +7,34 @@
   <meta name="description"
     content="Niyan AI is the Enterprise AI Control Plane. Deployed dynamically to give enterprises complete control, governance, and routing across OpenAI, Claude, Gemini, and self-hosted models from a unified platform.">
   <title>Niyan AI | Enterprise AI Control Plane</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('niyan-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Glowing Background Grid & Orbs -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
-  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  <div class="atmosphere atmosphere--shell" aria-hidden="true">
+    <div class="atmosphere-grid"></div>
+    <div class="atmosphere-light"></div>
+    <div class="atmosphere-grain"></div>
+  </div>
 
   <!-- Sticky Header & Banner Wrapper -->
   <div class="sticky-header-wrapper">
@@ -37,7 +49,9 @@
     <header class="main-header">
       <div class="header-container">
         <a href="#" class="logo-container" id="nav-logo">
-          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+          <img src="niyan_cube_logo.jpg" alt="" class="logo-image" width="32" height="32">
+          <span class="logo-text">niyan</span>
+          <span class="logo-beta">Beta</span>
         </a>
 
         <nav class="main-nav" aria-label="Main Navigation">
@@ -53,6 +67,10 @@
         </nav>
 
         <div class="header-cta">
+          <div class="theme-switch" role="group" aria-label="Color theme">
+            <button type="button" class="theme-switch-btn" data-theme-set="light" aria-pressed="true">Light</button>
+            <button type="button" class="theme-switch-btn" data-theme-set="dark" aria-pressed="false">Dark</button>
+          </div>
           <a href="#register-beta" class="btn btn-primary btn-sm" id="header-cta-btn">Request Demo</a>
         </div>
       </div>
@@ -298,7 +316,7 @@
             <!-- Definitions for gradients -->
             <defs>
               <pattern id="grid-pattern" width="40" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 0 10 L 20 0 L 40 10 L 20 20 Z" fill="none" stroke="rgba(99, 102, 241, 0.08)"
+                <path d="M 0 10 L 20 0 L 40 10 L 20 20 Z" fill="none" stroke="var(--line-soft)"
                   stroke-width="0.75" />
               </pattern>
               <filter id="glow-light" x="-20%" y="-20%" width="140%" height="140%">
@@ -311,16 +329,16 @@
             <rect width="960" height="480" fill="url(#grid-pattern)" rx="12" />
 
             <!-- Isometric Central Board -->
-            <polygon points="340,240 500,140 660,240 500,340" fill="rgba(99, 102, 241, 0.04)"
+            <polygon points="340,240 500,140 660,240 500,340" fill="var(--accent-soft)"
               stroke="var(--accent-violet)" stroke-width="1.5" filter="url(#glow-light)" />
 
             <!-- Isometric Board Internal Grid Lines -->
-            <line x1="380" y1="215" x2="540" y2="315" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-            <line x1="420" y1="190" x2="580" y2="290" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-            <line x1="460" y1="165" x2="620" y2="265" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-            <line x1="380" y1="265" x2="540" y2="165" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-            <line x1="420" y1="290" x2="580" y2="190" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-            <line x1="460" y1="315" x2="620" y2="215" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
+            <line x1="380" y1="215" x2="540" y2="315" stroke="var(--accent-line)" stroke-width="1" />
+            <line x1="420" y1="190" x2="580" y2="290" stroke="var(--accent-line)" stroke-width="1" />
+            <line x1="460" y1="165" x2="620" y2="265" stroke="var(--accent-line)" stroke-width="1" />
+            <line x1="380" y1="265" x2="540" y2="165" stroke="var(--accent-line)" stroke-width="1" />
+            <line x1="420" y1="290" x2="580" y2="190" stroke="var(--accent-line)" stroke-width="1" />
+            <line x1="460" y1="315" x2="620" y2="215" stroke="var(--accent-line)" stroke-width="1" />
 
             <!-- Connecting Paths -->
             <!-- Application -> SDK -> Scaling -> Control Plane Input Path (Cyan pulse) -->
@@ -335,16 +353,16 @@
 
             <!-- Edge Path (Analytics & Knowledge) -->
             <path d="M 475,275 Q 400,320 375,370 M 525,275 Q 600,320 625,370" fill="none"
-              stroke="rgba(255,255,255,0.15)" stroke-dasharray="4" stroke-width="2" id="path-edge" />
+              stroke="var(--line-strong)" stroke-dasharray="4" stroke-width="2" id="path-edge" />
 
             <!-- Cloud / Tools Path (Tools -> Internet) -->
             <path d="M 600,220 Q 680,260 745,320 M 795,320 Q 830,285 865,250" fill="none"
-              stroke="rgba(255,255,255,0.15)" stroke-dasharray="4" stroke-width="2" id="path-cloud" />
+              stroke="var(--line-strong)" stroke-dasharray="4" stroke-width="2" id="path-cloud" />
 
             <!-- Node Elements -->
             <!-- APPLICATION -->
             <g transform="translate(80, 380)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-primary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-primary)"
                 stroke-width="1.5" />
               <line x1="-25" y1="-10" x2="25" y2="-10" stroke="var(--text-primary)" stroke-width="1" />
               <circle cx="-18" cy="-15" r="1.5" fill="var(--accent-cyan)" />
@@ -355,7 +373,7 @@
 
             <!-- REST SDK -->
             <g transform="translate(190, 310)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1.2" />
               <text x="0" y="5" fill="var(--accent-violet)" font-family="monospace" font-size="12" font-weight="700"
                 text-anchor="middle">&lt;/&gt;</text>
@@ -365,7 +383,7 @@
 
             <!-- SCALING -->
             <g transform="translate(300, 240)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1.2" />
               <path d="M-15,5 Q-5,-15 5,5 T20,5" fill="none" stroke="var(--accent-pink)" stroke-width="1.5" />
               <text x="0" y="32" fill="var(--text-secondary)" font-family="sans-serif" font-size="7" font-weight="700"
@@ -376,7 +394,7 @@
             <!-- MODEL (Top) -->
             <g transform="translate(500, 160)">
               <!-- Nested Isometric Cube -->
-              <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="rgba(99,102,241,0.2)"
+              <polygon points="0,-12 12,-6 12,6 0,12 -12,6 -12,-6" fill="var(--accent-soft)"
                 stroke="var(--accent-violet)" stroke-width="1.2" />
               <line x1="0" y1="12" x2="0" y2="0" stroke="var(--accent-violet)" stroke-width="1.2" />
               <line x1="0" y1="0" x2="-12" y2="-6" stroke="var(--accent-violet)" stroke-width="1.2" />
@@ -387,7 +405,7 @@
 
             <!-- ORCHESTRATION (Left) -->
             <g transform="translate(420, 220)">
-              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <circle cx="-6" cy="-2" r="3" fill="var(--accent-violet)" />
               <circle cx="6" cy="-2" r="3" fill="var(--accent-violet)" />
@@ -398,7 +416,7 @@
 
             <!-- SECURITY (Right) -->
             <g transform="translate(580, 220)">
-              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <rect x="-8" y="-2" width="16" height="12" rx="2" fill="none" stroke="var(--accent-pink)"
                 stroke-width="1.5" />
@@ -410,7 +428,7 @@
 
             <!-- OBSERVABILITY (Center Bottom) -->
             <g transform="translate(500, 275)">
-              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-20" y="-20" width="40" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <path d="M-12,8 L-12,-8 L-8,-8 M-8,8 L-8,-2 M-4,8 L-4,-5 M0,8 L0,2 M4,8 L4,-8" fill="none"
                 stroke="var(--accent-cyan)" stroke-width="1.5" />
@@ -422,7 +440,7 @@
             <!-- PERIPHERAL TARGET NODES -->
             <!-- MODEL STORE (Top Left) -->
             <g transform="translate(350, 70)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <rect x="-10" y="-12" width="20" height="8" fill="none" stroke="var(--accent-cyan)" stroke-width="1.2" />
               <rect x="-10" y="-2" width="20" height="8" fill="none" stroke="var(--accent-cyan)" stroke-width="1.2" />
@@ -432,7 +450,7 @@
 
             <!-- ENTERPRISE DATA (Top Right) -->
             <g transform="translate(650, 70)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <ellipse cx="0" cy="-8" rx="10" ry="3" fill="none" stroke="var(--accent-violet)" stroke-width="1.2" />
               <path d="M-10,-8 L-10,0 A10,3 0 0,0 10,0 L10,-8" fill="none" stroke="var(--accent-violet)"
@@ -445,9 +463,9 @@
 
             <!-- ANALYTICS (Bottom Left) -->
             <g transform="translate(350, 390)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
-              <path d="M-15,8 L-15,-8 L15,8 Z" fill="rgba(6, 182, 212, 0.15)" stroke="var(--accent-cyan)"
+              <path d="M-15,8 L-15,-8 L15,8 Z" fill="var(--accent-soft)" stroke="var(--accent-cyan)"
                 stroke-width="1.2" />
               <text x="0" y="32" fill="var(--text-secondary)" font-family="sans-serif" font-size="7" font-weight="700"
                 text-anchor="middle" letter-spacing="0.5">ANALYTICS</text>
@@ -455,7 +473,7 @@
 
             <!-- KNOWLEDGE (Bottom Right) -->
             <g transform="translate(650, 390)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <rect x="-10" y="-10" width="20" height="20" rx="2" fill="none" stroke="var(--accent-pink)"
                 stroke-width="1.2" />
@@ -467,7 +485,7 @@
 
             <!-- TOOLS -->
             <g transform="translate(770, 320)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-secondary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-secondary)"
                 stroke-width="1" />
               <path
                 d="M-10,-5 L10,-5 Q14,-5 14,-1 L14,5 Q14,9 10,9 L2,9 L-6,13 L-6,9 L-10,9 Q-14,9 -14,5 L-14,-1 Q-14,-5 -10,-5 Z"
@@ -478,7 +496,7 @@
 
             <!-- INTERNET -->
             <g transform="translate(890, 250)">
-              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="#ffffff" stroke="var(--text-primary)"
+              <rect x="-25" y="-20" width="50" height="40" rx="6" fill="var(--surface)" stroke="var(--text-primary)"
                 stroke-width="1.5" />
               <circle cx="0" cy="0" r="12" fill="none" stroke="var(--accent-violet)" stroke-width="1.2" />
               <ellipse cx="0" cy="0" rx="4" ry="12" fill="none" stroke="var(--accent-violet)" stroke-width="1.2" />
@@ -1086,7 +1104,11 @@ client = openai.OpenAI(
   <div class="insight-drawer-overlay" id="insight-drawer-overlay" aria-hidden="true">
     <div class="insight-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title-text">
       <div class="insight-drawer-header">
-        <span class="logo-text">niyan<span class="logo-accent">.insight</span></span>
+        <span class="logo-container drawer-brand">
+          <img src="niyan_cube_logo.jpg" alt="" class="logo-image" width="28" height="28">
+          <span class="logo-text">niyan</span>
+          <span class="logo-beta">Beta</span>
+        </span>
         <button class="btn-close-drawer" id="btn-close-drawer" aria-label="Close drawer">&times;</button>
       </div>
       <div class="insight-drawer-body">
@@ -1107,7 +1129,9 @@ client = openai.OpenAI(
     <div class="container footer-container">
       <div class="footer-left">
         <a href="#" class="logo-container">
-          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+          <img src="niyan_cube_logo.jpg" alt="" class="logo-image" width="32" height="32">
+          <span class="logo-text">niyan</span>
+          <span class="logo-beta">Beta</span>
         </a>
         <p class="footer-tagline">The Enterprise AI Control Plane. Run Anywhere. Optimize Automatically. Govern
           Centrally.</p>
@@ -1149,6 +1173,7 @@ client = openai.OpenAI(
   </footer>
 
   <!-- App Script -->
+  <script src="theme.js"></script>
   <script src="app.js"></script>
 </body>
 

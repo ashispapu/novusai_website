@@ -21,17 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     private: {
       title: "Active Configuration: Private Sovereign Cloud",
       body: "Requests are run inside a private server enclosure or dedicated Kubernetes node. Zero training or inference data travels outside the corporate firewall. Compliant with military, BFSI, and strict national privacy mandates.",
-      paths: { private: { stroke: 'var(--accent-cyan)', width: '2.5', dash: '0' }, cloud: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, edge: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' } }
+      paths: { private: { stroke: 'var(--accent-cyan)', width: '2.5', dash: '0' }, cloud: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' }, edge: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' } }
     },
     cloud: {
       title: "Active Configuration: Hybrid Failover API",
       body: "Leverages public hyperscale APIs (OpenAI, Claude, Gemini) for highly creative or unconstrained prompts. The system routes transit requests through a secure egress gateway with automated data scrubbing and masking filter arrays.",
-      paths: { private: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, cloud: { stroke: 'var(--accent-violet)', width: '2.5', dash: '0' }, edge: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' } }
+      paths: { private: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' }, cloud: { stroke: 'var(--accent-violet)', width: '2.5', dash: '0' }, edge: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' } }
     },
     edge: {
       title: "Active Configuration: Local Edge Compute",
       body: "Deploys models directly on low-latency field machines (e.g. factory floor nodes, mobile devices, local offices). Automatically synchronizes weights and telemetry with the central control mesh when online.",
-      paths: { private: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, cloud: { stroke: 'rgba(255,255,255,0.15)', width: '1.5', dash: '4' }, edge: { stroke: 'var(--accent-pink)', width: '2.5', dash: '0' } }
+      paths: { private: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' }, cloud: { stroke: 'var(--line-strong)', width: '1.5', dash: '4' }, edge: { stroke: 'var(--accent-pink)', width: '2.5', dash: '0' } }
     }
   };
 

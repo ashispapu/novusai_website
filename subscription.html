@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -7,19 +7,34 @@
   <meta name="description"
     content="Subscribe to Niyan AI. Choose a VM-based install today, or join the waitlist for Kubernetes cloud deployments.">
   <title>Subscription | Niyan AI</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('niyan-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="subscription-page">
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
-  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  <div class="atmosphere atmosphere--shell" aria-hidden="true">
+    <div class="atmosphere-grid"></div>
+    <div class="atmosphere-light"></div>
+    <div class="atmosphere-grain"></div>
+  </div>
 
   <div class="sticky-header-wrapper">
     <div class="top-banner">
@@ -31,7 +46,9 @@
     <header class="main-header">
       <div class="header-container">
         <a href="index.html" class="logo-container" id="nav-logo">
-          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+          <img src="niyan_cube_logo.jpg" alt="" class="logo-image" width="32" height="32">
+          <span class="logo-text">niyan</span>
+          <span class="logo-beta">Beta</span>
         </a>
 
         <nav class="main-nav" aria-label="Main Navigation">
@@ -47,6 +64,10 @@
         </nav>
 
         <div class="header-cta">
+          <div class="theme-switch" role="group" aria-label="Color theme">
+            <button type="button" class="theme-switch-btn" data-theme-set="light" aria-pressed="true">Light</button>
+            <button type="button" class="theme-switch-btn" data-theme-set="dark" aria-pressed="false">Dark</button>
+          </div>
           <a href="index.html#register-beta" class="btn btn-primary btn-sm">Request Demo</a>
         </div>
       </div>
@@ -179,7 +200,9 @@ niyan up --pull    # or: niyan pull &amp;&amp; niyan up
     <div class="container footer-container">
       <div class="footer-left">
         <a href="index.html" class="logo-container">
-          <span class="logo-text">niyan<span class="logo-accent"> AI</span></span>
+          <img src="niyan_cube_logo.jpg" alt="" class="logo-image" width="32" height="32">
+          <span class="logo-text">niyan</span>
+          <span class="logo-beta">Beta</span>
         </a>
         <p class="footer-tagline">The Enterprise AI Control Plane. Run Anywhere. Optimize Automatically. Govern
           Centrally.</p>
@@ -220,6 +243,7 @@ niyan up --pull    # or: niyan pull &amp;&amp; niyan up
     </div>
   </footer>
 
+  <script src="theme.js"></script>
   <script src="subscription.js"></script>
 </body>
 
