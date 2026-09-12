@@ -808,4 +808,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Pause overview video when it leaves the viewport */
+  const overviewVideo = document.getElementById('niyan-overview-video');
+  if (overviewVideo) {
+    const videoVisibility = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && !overviewVideo.paused) {
+          overviewVideo.pause();
+        }
+      });
+    }, { threshold: 0.15 });
+    videoVisibility.observe(overviewVideo);
+  }
+
 });

@@ -31,7 +31,7 @@
 
 <body class="subscription-page">
   <div class="atmosphere atmosphere--shell" aria-hidden="true">
-    <div class="atmosphere-grid"></div>
+    <div class="atmosphere-mosaic"></div>
     <div class="atmosphere-light"></div>
     <div class="atmosphere-grain"></div>
   </div>
@@ -52,14 +52,67 @@
         </a>
 
         <nav class="main-nav" aria-label="Main Navigation">
-          <ul>
-            <li><a href="index.html#features" class="nav-link">Features</a></li>
-            <li><a href="index.html#control-plane" class="nav-link">Control Plane</a></li>
-            <li><a href="index.html#deployments" class="nav-link">Deployments</a></li>
-            <li><a href="index.html#router-demo" class="nav-link">AI Router</a></li>
-            <li><a href="index.html#calculator" class="nav-link">ROI FinOps</a></li>
-            <li><a href="index.html#insights" class="nav-link">Insights</a></li>
-            <li><a href="subscription.html" class="nav-link active" aria-current="page">Subscription</a></li>
+          <ul class="nav-root">
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-product">
+                Product
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-product">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Gateway</span>
+                  <a href="index.html#overview">Overview</a>
+                  <a href="index.html#features">Features</a>
+                  <a href="index.html#control-plane">Control Plane</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Deployment</span>
+                  <a href="index.html#architecture">Architecture</a>
+                  <a href="index.html#deployments">Deployments</a>
+                  <a href="index.html#code-compare">One API</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-solutions">
+                Solutions
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-solutions">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">By capability</span>
+                  <a href="index.html#router-demo">AI Router</a>
+                  <a href="index.html#calculator">ROI FinOps</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">By industry</span>
+                  <a href="index.html#sectors">Industries</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-resources">
+                Resources
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-resources">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Learn</span>
+                  <a href="index.html#insights">Insights</a>
+                  <a href="index.html#overview">Product overview</a>
+                  <a href="https://github.com/niyan-lab" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://www.linkedin.com/company/niyan-lab/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Start</span>
+                  <a href="index.html#register-beta">Request access</a>
+                  <a href="subscription.html" aria-current="page">Subscription</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-trigger nav-trigger--link is-current" href="subscription.html" aria-current="page">Subscription</a>
+            </li>
           </ul>
         </nav>
 
@@ -230,8 +283,9 @@ niyan up --pull    # or: niyan pull &amp;&amp; niyan up
           <ul>
             <li><a href="index.html#register-beta">Request Access</a></li>
             <li><a href="subscription.html">Subscription</a></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
-            <li><a href="#">Contact Support</a></li>
+            <li><a href="https://github.com/niyan-lab" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/company/niyan-lab/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:niyan@niyan.tech">Contact Support</a></li>
           </ul>
         </div>
       </div>

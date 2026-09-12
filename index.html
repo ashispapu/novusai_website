@@ -31,7 +31,7 @@
 
 <body>
   <div class="atmosphere atmosphere--shell" aria-hidden="true">
-    <div class="atmosphere-grid"></div>
+    <div class="atmosphere-mosaic"></div>
     <div class="atmosphere-light"></div>
     <div class="atmosphere-grain"></div>
   </div>
@@ -55,14 +55,67 @@
         </a>
 
         <nav class="main-nav" aria-label="Main Navigation">
-          <ul>
-            <li><a href="#features" class="nav-link">Features</a></li>
-            <li><a href="#control-plane" class="nav-link">Control Plane</a></li>
-            <li><a href="#deployments" class="nav-link">Deployments</a></li>
-            <li><a href="#router-demo" class="nav-link">AI Router</a></li>
-            <li><a href="#calculator" class="nav-link">ROI FinOps</a></li>
-            <li><a href="#insights" class="nav-link">Insights</a></li>
-            <li><a href="subscription.html" class="nav-link">Subscription</a></li>
+          <ul class="nav-root">
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-product">
+                Product
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-product">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Gateway</span>
+                  <a href="#overview">Overview</a>
+                  <a href="#features">Features</a>
+                  <a href="#control-plane">Control Plane</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Deployment</span>
+                  <a href="#architecture">Architecture</a>
+                  <a href="#deployments">Deployments</a>
+                  <a href="#code-compare">One API</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-solutions">
+                Solutions
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-solutions">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">By capability</span>
+                  <a href="#router-demo">AI Router</a>
+                  <a href="#calculator">ROI FinOps</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">By industry</span>
+                  <a href="#sectors">Industries</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item has-menu">
+              <button type="button" class="nav-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-resources">
+                Resources
+                <span class="nav-caret" aria-hidden="true"></span>
+              </button>
+              <div class="nav-menu" id="nav-menu-resources">
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Learn</span>
+                  <a href="#insights">Insights</a>
+                  <a href="#overview">Product overview</a>
+                  <a href="https://github.com/niyan-lab" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://www.linkedin.com/company/niyan-lab/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+                <div class="nav-menu-col">
+                  <span class="nav-menu-heading">Start</span>
+                  <a href="#register-beta">Request access</a>
+                  <a href="subscription.html">Subscription</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-trigger nav-trigger--link" href="subscription.html">Subscription</a>
+            </li>
           </ul>
         </nav>
 
@@ -97,7 +150,7 @@
 
       <div class="hero-actions">
         <a href="#register-beta" class="btn btn-primary" id="hero-primary-cta">Request Enterprise Access</a>
-        <a href="#router-demo" class="btn btn-secondary" id="hero-secondary-cta">See How It Works</a>
+        <a href="#overview" class="btn btn-secondary" id="hero-secondary-cta">Watch product overview</a>
       </div>
 
       <!-- Quick Command Container -->
@@ -128,6 +181,41 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Product overview video -->
+  <section class="overview-section" id="overview" aria-labelledby="overview-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="cp-display-tag">Product overview</span>
+        <h2 class="section-title" id="overview-title">See how Niyan works</h2>
+        <p class="section-description">A short walkthrough of the control plane: unified routing across providers,
+          governance, and FinOps — so teams can evaluate Niyan before requesting access.</p>
+      </div>
+
+      <figure class="overview-player">
+        <div class="overview-player-frame">
+          <video
+            id="niyan-overview-video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="media/niyan-overview-poster.jpg"
+            width="1024"
+            height="576"
+            title="Niyan product overview">
+            <source src="media/niyan-overview.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+            <a href="media/niyan-overview.mp4">Download the Niyan overview</a>
+          </video>
+        </div>
+        <figcaption class="overview-caption">
+          <span>3 min 37 sec</span>
+          <span aria-hidden="true">·</span>
+          <span>No autoplay — press play when you are ready</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1141,6 +1229,7 @@ client = openai.OpenAI(
         <div class="footer-col">
           <h4>Technology</h4>
           <ul>
+            <li><a href="#overview">Product overview</a></li>
             <li><a href="#architecture">Architecture Mesh</a></li>
             <li><a href="#router-demo">AI Router Core</a></li>
             <li><a href="#code-compare">SDK Documentation</a></li>
@@ -1159,8 +1248,9 @@ client = openai.OpenAI(
           <ul>
             <li><a href="#register-beta">Request Access</a></li>
             <li><a href="subscription.html">Subscription</a></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Project</a></li>
-            <li><a href="#">Contact Support</a></li>
+            <li><a href="https://github.com/niyan-lab" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/company/niyan-lab/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="mailto:niyan@niyan.tech">Contact Support</a></li>
           </ul>
         </div>
       </div>

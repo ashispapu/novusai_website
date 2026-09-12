@@ -8,7 +8,7 @@ This repo is a static marketing site (HTML, CSS, and JavaScript). There is no bu
 
 | Path | Description |
 | --- | --- |
-| `index.html` | Landing page: features, control plane, architecture, router demo, FinOps calculator, insights, and beta registration |
+| `index.html` | Landing page: product overview video, features, control plane, architecture, router demo, FinOps calculator, insights, and beta registration |
 | `subscription.html` | VM subscription vs Kubernetes (coming soon), plus post-subscribe install commands |
 
 ## Run locally
@@ -22,6 +22,7 @@ python3 -m http.server 8080
 Then open:
 
 - http://127.0.0.1:8080/
+- http://127.0.0.1:8080/#overview
 - http://127.0.0.1:8080/subscription.html
 
 Any static file server works. Do not open the HTML files directly from disk if you want routing and assets to load reliably.
@@ -40,7 +41,10 @@ app.js                  Landing-page widgets (router, ROI, control plane, insigh
 subscription.js         VM plan selection and install copy
 theme.js                Light/dark theme persistence
 niyan_cube_logo.jpg     Brand mark
+media/                  Product overview video and poster frame
 ```
+
+The landing page embeds `media/niyan-overview.mp4` (about 3.5 minutes) after the hero. Playback uses native controls, `preload="metadata"`, and does not autoplay.
 
 Beta registration and VM subscribe flows are client-side mocks. Leads are written to `localStorage` (`niyan_leads`, `niyan_vm_subscription`). They are not sent to a backend.
 
